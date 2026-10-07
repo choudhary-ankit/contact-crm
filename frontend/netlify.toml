@@ -1,0 +1,23 @@
+# Netlify settings for the frontend. In Netlify set "Base directory" to `frontend`.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # VITE_API_URL / VITE_API_KEY are meant to be in the browser bundle (the key is a public demo key),
+  # so tell Netlify's secret scanner not to fail the deploy when it finds them in the build output.
+  SECRETS_SCAN_OMIT_KEYS = "VITE_API_URL,VITE_API_KEY"
+
+# Single-page app: every path must serve index.html so a refresh on /contacts/123 or /metrics works.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
