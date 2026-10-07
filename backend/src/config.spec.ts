@@ -1,7 +1,7 @@
 import { apiKeyProblems, assertValidConfig } from './config';
 
 const ACCOUNT = '11111111-1111-4111-8111-111111111111';
-const GOOD = `82b668a2afd90e0617310c832a4ecd76e0ced7828216447e:${ACCOUNT}`;
+const GOOD = `0123456789abcdef0123456789abcdef-fake-test-key:${ACCOUNT}`;
 
 describe('API_KEYS validation', () => {
   it('accepts a strong key bound to an account, and several keys', () => {
