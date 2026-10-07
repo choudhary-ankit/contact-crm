@@ -1,10 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import { loadConfig } from './config';
+import { assertValidConfig, loadConfig } from './config';
 import { setupApp } from './setup-app';
 
 async function bootstrap() {
+  assertValidConfig(); // fail fast with a clear message instead of serving 401 for every request
   const config = loadConfig();
   const app = await NestFactory.create(AppModule);
   app.enableCors({ origin: config.corsOrigin.split(','), exposedHeaders: ['ETag', 'Content-Disposition', 'Retry-After'] });

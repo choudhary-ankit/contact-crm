@@ -1,5 +1,39 @@
 import 'dotenv/config';
 
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const WEAK_DEFAULT_KEYS = new Set(['demo-key', 'demo-key-2']);
+
+/**
+ * Checks API_KEYS and returns human-readable problems. It never echoes the keys themselves (they are secrets).
+ * `production` adds stricter rules: no built-in demo keys and a minimum key length.
+ */
+export function apiKeyProblems(raw: string, production: boolean): string[] {
+  const problems: string[] = [];
+  const entries = raw.split(',').map((e) => e.trim()).filter(Boolean);
+  if (!entries.length) return ['API_KEYS is empty. Expected "<key>:<account uuid>" (comma-separate several)'];
+  entries.forEach((entry, i) => {
+    const n = i + 1;
+    const idx = entry.indexOf(':');
+    if (idx <= 0) {
+      problems.push(`API_KEYS entry #${n} must look like "<key>:<account uuid>" (the ":" and an account id are missing or the key is empty)`);
+      return;
+    }
+    const key = entry.slice(0, idx).trim();
+    const account = entry.slice(idx + 1).trim();
+    if (!UUID.test(account)) problems.push(`API_KEYS entry #${n}: the part after ":" must be an account UUID`);
+    if (UUID.test(key)) problems.push(`API_KEYS entry #${n}: the key looks like an account UUID; put the secret key before the ":"`);
+    if (production && WEAK_DEFAULT_KEYS.has(key)) problems.push(`API_KEYS entry #${n}: the built-in demo key must not be used in production`);
+    if (production && key.length < 16) problems.push(`API_KEYS entry #${n}: the key must be at least 16 characters in production`);
+  });
+  return problems;
+}
+
+/** Called once at startup: refuse to boot with a configuration that would silently reject every request. */
+export function assertValidConfig(env: NodeJS.ProcessEnv = process.env): void {
+  const problems = apiKeyProblems(env.API_KEYS ?? DEFAULT_KEYS, env.NODE_ENV === 'production');
+  if (problems.length) throw new Error(`Invalid configuration:\n  - ${problems.join('\n  - ')}`);
+}
+
 export interface AppConfig {
   port: number;
   databaseUrl: string;
