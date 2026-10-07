@@ -51,7 +51,7 @@ The frontend proxies `/api/*` to the backend, so no CORS setup is needed. It aut
 
 ```bash
 cd backend  && npm test     # 170 tests; unit + API integration against a real Postgres (crm_test)
-cd frontend && npm test     # 113 tests; API client, dialogs, create form, list/trash/detail, import wizard/job/history, metrics
+cd frontend && npm test     # 157 tests; API client, dialogs, create form, list/trash/detail, import wizard/job/history, metrics, command palette, app shell
 ```
 
 > The backend tests need the database from step 1. If you ever `docker compose down -v`, the `crm_test` database is
@@ -111,6 +111,17 @@ The server **refuses to start** with a malformed `API_KEYS` (for example only an
 **Frontend settings** (build-time, so changing them needs a redeploy): `VITE_API_URL` (the backend's address) and `VITE_API_KEY` (the secret key only, **without** the `:account` part).
 
 To create the demo data in a fresh database: `DATABASE_URL=<url> SEED_COUNT=10000 npm run seed` from `backend/` (this replaces the demo accounts' data, so use it only on a demo database).
+
+## Interface
+
+- **Design system** (`frontend/src/styles.css`): one set of CSS variables for colour, spacing, radius and shadow, one typeface (Inter), and **light and dark themes that follow the system setting**. Reduced-motion preferences are respected, focus rings are always visible, and everything works with the keyboard.
+- **App shell:** a fixed navy sidebar with icons (Lucide), a trash badge, and the window itself never scrolls (only the content does), so the sidebar and page headers stay in view.
+- **Quick search (`Cmd+K` / `Ctrl+K`):** jump to any page, start an action ("Add contact", "Import contacts"), or find a contact by name, email or phone. Names that start with what you typed rank above names that merely contain it.
+- **Contacts list:** saved-view chips with live counts (All, the biggest tags, Untagged, No contact info), a compact **Filters** popover for tag / company / dates / needs-attention, removable chips for any active filter, colour-coded avatars and tags (a stable colour per name, "+N" for extra tags), relative dates, a floating bulk-action bar, and "1-25 of 26,785" paging.
+- **Contact page:** Details and Activity tabs (kept in the URL), with the history as a timeline: an icon per event type, newest first.
+- **Metrics:** KPI cards with trend badges and sparklines, and a full-width area chart with a hover tooltip. Charts are plain SVG with an accessible data table behind them.
+- **Loading and empty states:** skeleton placeholders shaped like the content (rows, cards, the contact page), and friendly empty states with a clear next action.
+- Secondary data never breaks the main screen: if the metrics numbers used for the view chips fail to load or come back malformed, the chips are simply hidden and the list works as usual.
 
 ## Tech stack and why
 

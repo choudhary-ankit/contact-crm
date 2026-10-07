@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { useQuery } from '@tanstack/vue-query';
+import { ArrowRight, Calendar, ChartColumn, Mail, TrendingDown, TrendingUp, UserPlus, Users, Tag as TagIcon, Upload } from 'lucide-vue-next';
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { api, ApiError } from '../api';
 import BarList from '../components/BarList.vue';
+import EmptyState from '../components/EmptyState.vue';
 import LineChart from '../components/LineChart.vue';
+import Sparkline from '../components/Sparkline.vue';
 import { ATTENTION_LABELS, fmtNumber, pct } from '../format';
 import type { ActivityType, Attention } from '../types';
 
@@ -52,6 +55,18 @@ const attention = computed<Array<{ key: Attention; label: string; count: number;
   { key: 'stale', label: `Not updated in ${q.value.staleDays}+ days`, count: q.value.stale, hint: 'may be out of date' },
 ]);
 
+/** Approximate running total of active contacts over the period, ending at today's count (for the sparkline). */
+const activeTrend = computed(() => {
+  if (!m.value) return [] as number[];
+  let running = m.value.contacts.active;
+  const out = new Array<number>(m.value.daily.length);
+  for (let i = m.value.daily.length - 1; i >= 0; i--) {
+    out[i] = running;
+    running -= m.value.daily[i].created;
+  }
+  return out;
+});
+
 const change = computed(() => m.value?.contacts.changePct ?? null);
 const updatedAt = computed(() => (m.value ? new Date(m.value.generatedAt).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }) : ''));
 </script>
@@ -60,11 +75,12 @@ const updatedAt = computed(() => (m.value ? new Date(m.value.generatedAt).toLoca
   <section>
     <header class="page-header">
       <h1>Metrics</h1>
-      <span v-if="updating" class="muted" role="status">Updating…</span>
+      <span v-if="updating" class="muted small-text" role="status">Updating…</span>
       <span class="spacer" />
       <span v-if="m" class="muted small-text">Updated {{ updatedAt }}</span>
       <label class="inline">
-        Period
+        <Calendar :size="15" aria-hidden="true" style="color: var(--subtle)" />
+        <span class="sr-only">Period</span>
         <select :value="range" aria-label="Period" @change="setRange">
           <option :value="7">Last 7 days</option>
           <option :value="30">Last 30 days</option>
@@ -74,51 +90,60 @@ const updatedAt = computed(() => (m.value ? new Date(m.value.generatedAt).toLoca
     </header>
 
     <div class="page-body">
-      <p v-if="metrics.isPending.value" class="state" role="status">Loading metrics…</p>
+      <div v-if="metrics.isPending.value" role="status">
+        <span class="sr-only">Loading metrics…</span>
+        <div class="kpis four" aria-hidden="true">
+          <div v-for="n in 4" :key="n" class="kpi"><span class="skeleton line" style="width: 50%" /><span class="skeleton line" style="width: 40%; height: 26px" /><span class="skeleton line" style="width: 60%; height: 8px" /></div>
+        </div>
+        <div class="columns" aria-hidden="true"><div v-for="n in 2" :key="n" class="card"><span class="skeleton line" style="width: 40%" /><span class="skeleton line" style="height: 140px" /></div></div>
+      </div>
       <div v-else-if="metrics.isError.value && !m" class="state error" role="alert">
         <p>Could not load metrics: {{ loadError }}</p>
         <button type="button" class="btn" @click="metrics.refetch()">Retry</button>
       </div>
 
-      <div v-else-if="empty" class="state">
-        <p>No data yet. Add or import contacts to see your metrics.</p>
-        <div class="row" style="justify-content: center">
-          <RouterLink :to="{ name: 'contacts' }" class="btn primary">Go to contacts</RouterLink>
-          <RouterLink :to="{ name: 'import-new' }" class="btn">Import contacts</RouterLink>
-        </div>
-      </div>
+      <EmptyState v-else-if="empty" :icon="ChartColumn" title="No data yet." text="Add or import contacts to see your metrics.">
+        <RouterLink :to="{ name: 'contacts' }" class="btn primary"><Users aria-hidden="true" />Go to contacts</RouterLink>
+        <RouterLink :to="{ name: 'import-new' }" class="btn"><Upload aria-hidden="true" />Import contacts</RouterLink>
+      </EmptyState>
 
       <template v-else-if="m">
         <p v-if="metrics.isError.value" class="error" role="alert">Could not refresh: {{ loadError }} <button type="button" class="link" @click="metrics.refetch()">Retry</button></p>
 
         <div class="kpis four">
           <div class="kpi">
-            <span class="sub">Active contacts</span><b>{{ fmtNumber(m.contacts.active) }}</b>
+            <span class="sub"><Users aria-hidden="true" />Active contacts</span><b>{{ fmtNumber(m.contacts.active) }}</b>
             <span class="sub"><RouterLink :to="{ name: 'trash' }">{{ fmtNumber(m.contacts.inTrash) }} in trash</RouterLink></span>
+            <Sparkline :values="activeTrend" />
           </div>
           <div class="kpi">
-            <span class="sub">New in last {{ m.range }} days</span><b>{{ fmtNumber(m.contacts.newInRange) }}</b>
-            <span v-if="change !== null" class="sub" :class="change >= 0 ? 'up' : 'down'">{{ change >= 0 ? '▲' : '▼' }} {{ Math.abs(change) }}% vs previous {{ m.range }} days</span>
+            <span class="sub"><UserPlus aria-hidden="true" />New in last {{ m.range }} days</span><b>{{ fmtNumber(m.contacts.newInRange) }}</b>
+            <span v-if="change !== null" class="delta" :class="change >= 0 ? 'up' : 'down'">
+              <component :is="change >= 0 ? TrendingUp : TrendingDown" aria-hidden="true" />{{ Math.abs(change) }}% vs previous {{ m.range }} days
+            </span>
             <span v-else class="sub">No previous period to compare</span>
+            <Sparkline :values="m.daily.map((d) => d.created)" color="var(--ok)" />
           </div>
           <div class="kpi">
-            <span class="sub">Reachable</span><b>{{ pct(q.reachable, m.contacts.active) }}%</b>
+            <span class="sub"><Mail aria-hidden="true" />Reachable</span><b>{{ pct(q.reachable, m.contacts.active) }}%</b>
             <span class="sub">have an email or a phone</span>
+            <div class="progress" aria-hidden="true" style="margin-top: 8px"><i :style="{ width: `${pct(q.reachable, m.contacts.active)}%` }" /></div>
           </div>
           <div class="kpi">
-            <span class="sub">Untagged</span><b>{{ pct(q.untagged, m.contacts.active) }}%</b>
+            <span class="sub"><TagIcon aria-hidden="true" />Untagged</span><b>{{ pct(q.untagged, m.contacts.active) }}%</b>
             <span class="sub">{{ fmtNumber(q.untagged) }} contacts</span>
+            <div class="progress" aria-hidden="true" style="margin-top: 8px"><i :style="{ width: `${pct(q.untagged, m.contacts.active)}%` }" /></div>
           </div>
         </div>
 
         <div class="columns">
-          <div class="card">
+          <div class="card span-all">
             <h2>New contacts and edits per day</h2>
             <LineChart
               :labels="m.daily.map((d) => d.date)"
               :series="[
-                { name: 'New contacts', color: '#155eef', values: m.daily.map((d) => d.created) },
-                { name: 'Edits', color: '#1fb9e6', dashed: true, values: m.daily.map((d) => d.edits) },
+                { name: 'New contacts', color: 'var(--chart-1)', values: m.daily.map((d) => d.created) },
+                { name: 'Edits', color: 'var(--chart-2)', dashed: true, values: m.daily.map((d) => d.edits) },
               ]"
             />
           </div>
@@ -126,9 +151,6 @@ const updatedAt = computed(() => (m.value ? new Date(m.value.generatedAt).toLoca
             <h2>Contacts by tag</h2>
             <BarList :items="m.tags.map((t) => ({ label: t.name, value: t.count }))" empty-text="No tags in use yet." />
           </div>
-        </div>
-
-        <div class="columns">
           <div class="card">
             <h2>Data completeness</h2>
             <BarList :items="completeness" :max="100" />
@@ -141,16 +163,13 @@ const updatedAt = computed(() => (m.value ? new Date(m.value.generatedAt).toLoca
                   <td>{{ a.label }}<div v-if="a.hint" class="sub">{{ a.hint }}</div></td>
                   <td class="num">{{ fmtNumber(a.count) }}</td>
                   <td class="actions-col">
-                    <RouterLink v-if="a.count > 0" :to="{ name: 'contacts', query: { attention: a.key } }" :aria-label="`View contacts: ${a.label}`">View</RouterLink>
+                    <RouterLink v-if="a.count > 0" :to="{ name: 'contacts', query: { attention: a.key } }" :aria-label="`View contacts: ${a.label}`">View<ArrowRight :size="13" aria-hidden="true" style="vertical-align: -2px; margin-left: 2px" /></RouterLink>
                     <span v-else class="muted">None</span>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </div>
-
-        <div class="columns">
           <div class="card">
             <h2>Activity in the last {{ m.range }} days</h2>
             <BarList :items="m.activity.map((a) => ({ label: ACTIVITY_LABELS[a.type] ?? a.type, value: a.count }))" empty-text="No activity in this period." />

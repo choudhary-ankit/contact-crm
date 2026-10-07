@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useMutation, useQuery } from '@tanstack/vue-query';
+import { ArrowLeft, CloudUpload, FileSpreadsheet } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { api, ApiError } from '../api';
@@ -81,7 +82,7 @@ async function downloadSample() {
 <template>
   <section>
     <header class="page-header">
-      <RouterLink :to="{ name: 'imports' }" class="link">← Imports</RouterLink>
+      <RouterLink :to="{ name: 'imports' }" class="btn small"><ArrowLeft aria-hidden="true" />Imports</RouterLink>
       <h1>Import contacts</h1>
     </header>
 
@@ -106,10 +107,12 @@ async function downloadSample() {
           >
             <input ref="input" type="file" accept=".csv,text/csv" class="sr-only" aria-label="Choose a CSV file" @change="pick(($event.target as HTMLInputElement).files?.[0])" />
             <template v-if="file">
+              <FileSpreadsheet aria-hidden="true" />
               <strong>{{ file.name }}</strong>
               <span class="muted">{{ size(file.size) }} · ready to check</span>
             </template>
             <template v-else>
+              <CloudUpload aria-hidden="true" />
               <strong>Drop a .csv file here, or browse</strong>
               <span class="muted">UTF-8, header row required, up to 5 MB or 50,000 rows</span>
             </template>

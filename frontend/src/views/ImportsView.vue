@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { useQuery } from '@tanstack/vue-query';
+import { FileUp, Plus } from 'lucide-vue-next';
 import { computed } from 'vue';
+import EmptyState from '../components/EmptyState.vue';
+import SkeletonRows from '../components/SkeletonRows.vue';
 import { api } from '../api';
 import { fmtDateTime, fmtNumber, pct } from '../format';
 import type { ImportJob } from '../types';
@@ -31,21 +34,20 @@ const progress = (j: ImportJob) => (j.status === 'completed' ? 100 : j.totalRows
     <header class="page-header">
       <h1>Imports</h1>
       <span class="spacer" />
-      <RouterLink :to="{ name: 'import-new' }" class="btn primary">Import contacts</RouterLink>
+      <RouterLink :to="{ name: 'import-new' }" class="btn primary"><Plus aria-hidden="true" />Import contacts</RouterLink>
     </header>
 
     <div class="page-body">
       <p class="note">Upload a CSV to add or update many contacts at once. Files are checked first, and nothing changes until you confirm.</p>
 
-      <p v-if="list.isPending.value" class="state" role="status">Loading imports…</p>
+      <SkeletonRows v-if="list.isPending.value" label="Loading imports…" :checkbox="false" :rows="4" />
       <div v-else-if="list.isError.value" class="state error" role="alert">
         <p>Could not load imports: {{ (list.error.value as Error).message }}</p>
         <button type="button" class="btn" @click="list.refetch()">Retry</button>
       </div>
-      <div v-else-if="!jobs.length" class="state">
-        <p>No imports yet.</p>
-        <RouterLink :to="{ name: 'import-new' }" class="btn primary">Import contacts</RouterLink>
-      </div>
+      <EmptyState v-else-if="!jobs.length" :icon="FileUp" title="No imports yet." text="Upload a CSV to add or update many contacts at once.">
+        <RouterLink :to="{ name: 'import-new' }" class="btn primary"><Plus aria-hidden="true" />Import contacts</RouterLink>
+      </EmptyState>
 
       <div v-else class="table-wrap">
         <table class="grid">

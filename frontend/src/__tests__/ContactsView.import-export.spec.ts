@@ -15,7 +15,7 @@ describe('ContactsView - import, export and attention filters', () => {
     mockFetch({ ...tags, 'GET /contacts': () => json(200, page([makeContact()])) });
     const { wrapper: w } = await mountWithApp(ContactsView);
     await vi.waitFor(() => expect(w.text()).toContain('Ada Lovelace'));
-    expect(w.find('a[href="/imports/new"]').text()).toBe('Import CSV');
+    expect(w.find('a[href="/imports/new"]').text()).toBe('Import');
   });
 
   it('applies the attention filter from the URL, shows it as a removable chip, and sends it to the API', async () => {
@@ -51,7 +51,7 @@ describe('ContactsView - import, export and attention filters', () => {
     await vi.waitFor(() => expect(w.text()).toContain('Ada Lovelace'));
     expect(listCalls(fetchMock)[0].has('attention')).toBe(false);
     expect(w.find('.filter-chip').exists()).toBe(false);
-    expect(w.text()).not.toContain('Export CSV');
+    expect(w.findAll('button').map((b) => b.text())).not.toContain('Export');
   });
 
   it('exports with the current search and filters (no cursor), and downloads the file', async () => {
@@ -60,7 +60,7 @@ describe('ContactsView - import, export and attention filters', () => {
     const fetchMock = mockFetch({ ...tags, 'GET /contacts': () => json(200, page([makeContact()])), 'GET /contacts/export.csv': () => csvResponse('first_name\r\nAda\r\n', 'contacts.csv') });
     const { wrapper: w } = await mountWithApp(ContactsView, {}, '/?attention=untagged&company=acme&sort=name:asc');
     await vi.waitFor(() => expect(w.text()).toContain('Ada Lovelace'));
-    await w.findAll('button').find((b) => b.text() === 'Export CSV')!.trigger('click');
+    await w.findAll('button').find((b) => b.text() === 'Export')!.trigger('click');
     await vi.waitFor(() => expect(click).toHaveBeenCalled());
 
     const [call] = callsTo(fetchMock, 'GET', /export\.csv$/);
@@ -76,7 +76,7 @@ describe('ContactsView - import, export and attention filters', () => {
     mockFetch({ ...tags, 'GET /contacts': () => json(200, page([makeContact()])), 'GET /contacts/export.csv': () => json(500, { code: 'INTERNAL_ERROR', message: 'Something went wrong' }) });
     const { wrapper: w } = await mountWithApp(ContactsView);
     await vi.waitFor(() => expect(w.text()).toContain('Ada Lovelace'));
-    await w.findAll('button').find((b) => b.text() === 'Export CSV')!.trigger('click');
+    await w.findAll('button').find((b) => b.text() === 'Export')!.trigger('click');
     await vi.waitFor(() => expect(useToasts().toasts[0]?.message).toMatch(/Couldn't export/));
     expect(useToasts().toasts[0].kind).toBe('error');
   });

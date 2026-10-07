@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Download } from 'lucide-vue-next';
 import { computed } from 'vue';
 import type { ImportFormat } from '../types';
 
@@ -16,7 +17,7 @@ const example = computed(
     <div class="row between">
       <h2>File format: {{ format.title.toLowerCase() }}</h2>
       <button type="button" class="btn small" :disabled="downloading" @click="emit('download')">
-        {{ downloading ? 'Preparing…' : 'Download sample CSV' }}
+        <Download aria-hidden="true" />{{ downloading ? 'Preparing…' : 'Download sample CSV' }}
       </button>
     </div>
     <p class="muted">{{ format.summary }} Use a header row, UTF-8 text, and commas between columns.</p>

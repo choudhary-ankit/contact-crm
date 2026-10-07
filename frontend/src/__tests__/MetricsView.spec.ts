@@ -34,7 +34,8 @@ describe('MetricsView', () => {
     expect(kpis[0]).toContain('1,000');
     expect(kpis[0]).toContain('7 in trash');
     expect(kpis[1]).toContain('120');
-    expect(kpis[1]).toContain('▲ 20% vs previous 30 days');
+    expect(kpis[1]).toContain('20% vs previous 30 days');
+    expect(w.find('.kpi .delta.up').exists()).toBe(true); // green badge with an up-trend icon
     expect(kpis[2]).toContain('95%'); // 950 / 1000 reachable
     expect(kpis[3]).toContain('25%'); // 250 / 1000 untagged
     expect(kpis[3]).toContain('250 contacts');
@@ -42,7 +43,7 @@ describe('MetricsView', () => {
 
   it('shows a decline in red with a down arrow, and no comparison when there is no previous period', async () => {
     const { wrapper: down } = await open(metrics({ contacts: { active: 10, newInRange: 5, newPrevRange: 10, changePct: -50, inTrash: 0 } }));
-    expect(down.find('.kpi .down').text()).toContain('▼ 50%');
+    expect(down.find('.kpi .delta.down').text()).toContain('50% vs previous 30 days'); // red badge with a down-trend icon
     const { wrapper: none } = await open(metrics({ contacts: { active: 10, newInRange: 5, newPrevRange: 0, changePct: null, inTrash: 0 } }));
     expect(none.text()).toContain('No previous period to compare');
   });

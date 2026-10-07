@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query';
+import { ArrowLeft, History, Pencil, RotateCcw, Tag as TagIcon, Trash2, TriangleAlert, UserPlus, type LucideIcon } from 'lucide-vue-next';
 import { computed, reactive, ref, watch } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { api, ApiError } from '../api';
 import ConfirmDialog from '../components/ConfirmDialog.vue';
 import ConflictDialog from '../components/ConflictDialog.vue';
 import TagEditor from '../components/TagEditor.vue';
 import { useToasts } from '../composables/useToasts';
-import { describeActivity, fmtDateTime, initials } from '../format';
-import { FIELDS, type Contact, type ContactFields, type EditableKey, type Tag } from '../types';
+import { activityDetail, activityTitle, fmtDateTime, initials, pal } from '../format';
+import EmptyState from '../components/EmptyState.vue';
+import { FIELDS, type ActivityType, type Contact, type ContactFields, type EditableKey, type Tag } from '../types';
 import { validateContact } from '../validation';
 
 const props = defineProps<{ id: string }>();
 const router = useRouter();
+const route = useRoute();
 const qc = useQueryClient();
 const { push: toast } = useToasts();
 
@@ -201,6 +204,33 @@ const trashError = computed(() => {
     : e.message;
 });
 
+// ---- tabs (kept in the URL so a refresh or a shared link opens the same one)
+type TabKey = 'details' | 'activity';
+const tabFromUrl = (): TabKey => (route.query.tab === 'activity' ? 'activity' : 'details');
+const tab = ref<TabKey>(tabFromUrl());
+watch(() => route.query.tab, () => (tab.value = tabFromUrl())); // back/forward and shared links
+function setTab(t: TabKey) {
+  tab.value = t; // switch immediately, then record it in the URL
+  router.replace({ query: { ...route.query, tab: t === 'details' ? undefined : t } });
+}
+function onTabKey(e: KeyboardEvent) {
+  if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+  e.preventDefault();
+  const next: TabKey = tab.value === 'details' ? 'activity' : 'details';
+  setTab(next);
+  (document.getElementById(`tab-${next}`) as HTMLElement | null)?.focus();
+}
+const activityCount = computed(() => activityQuery.data.value?.length);
+
+const TIMELINE: Record<ActivityType, { icon: LucideIcon; pal: string }> = {
+  CONTACT_CREATED: { icon: UserPlus, pal: 'pal-1' },
+  CONTACT_UPDATED: { icon: Pencil, pal: 'pal-0' },
+  CONTACT_DELETED: { icon: Trash2, pal: 'pal-4' },
+  CONTACT_RESTORED: { icon: RotateCcw, pal: 'pal-6' },
+  TAG_ADDED: { icon: TagIcon, pal: 'pal-2' },
+  TAG_REMOVED: { icon: TagIcon, pal: 'pal-3' },
+};
+
 const loadError = computed(() => contactQuery.error.value as ApiError | null);
 const goBack = () => (window.history.state?.back ? router.back() : router.push({ name: 'contacts' }));
 </script>
@@ -208,18 +238,28 @@ const goBack = () => (window.history.state?.back ? router.back() : router.push({
 <template>
   <section>
     <header class="page-header">
-      <button type="button" class="link" @click="goBack">← Back</button>
+      <button type="button" class="btn small" @click="goBack"><ArrowLeft aria-hidden="true" />Back</button>
       <span class="spacer" />
       <template v-if="contact">
         <button v-if="isDeleted" type="button" class="btn primary" :disabled="restore.isPending.value" @click="restore.mutate(contact)">
-          {{ restore.isPending.value ? 'Restoring…' : 'Restore contact' }}
+          <RotateCcw aria-hidden="true" />{{ restore.isPending.value ? 'Restoring…' : 'Restore contact' }}
         </button>
-        <button v-else type="button" class="btn danger-outline" @click="trash.reset(); confirmTrash = true">Move to trash</button>
+        <button v-else type="button" class="btn danger-outline" @click="trash.reset(); confirmTrash = true"><Trash2 aria-hidden="true" />Move to trash</button>
       </template>
     </header>
 
     <div class="page-body">
-      <p v-if="contactQuery.isPending.value" class="state" role="status">Loading contact…</p>
+      <div v-if="contactQuery.isPending.value" role="status">
+        <span class="sr-only">Loading contact…</span>
+        <div class="identity" aria-hidden="true">
+          <span class="skeleton circle" style="width: 52px; height: 52px" />
+          <div style="flex: 1; display: grid; gap: 8px"><span class="skeleton line" style="width: 220px; height: 16px" /><span class="skeleton line" style="width: 320px" /></div>
+        </div>
+        <div class="columns" aria-hidden="true">
+          <div class="card"><span v-for="n in 5" :key="n" class="skeleton line" style="height: 36px; border-radius: 10px" /></div>
+          <div class="card"><span class="skeleton line" style="height: 24px; width: 40%" /><span class="skeleton line" style="height: 36px" /></div>
+        </div>
+      </div>
       <div v-else-if="loadError" class="state error" role="alert">
         <p>{{ loadError.status === 404 ? 'This contact does not exist.' : `Could not load contact: ${loadError.message}` }}</p>
         <button v-if="loadError.status !== 404" type="button" class="btn" @click="contactQuery.refetch()">Retry</button>
@@ -227,7 +267,7 @@ const goBack = () => (window.history.state?.back ? router.back() : router.push({
 
       <template v-else-if="contact && base">
         <div class="identity">
-          <span class="avatar large" aria-hidden="true">{{ initials(contact.firstName, contact.lastName) }}</span>
+          <span class="avatar large" :class="pal(fullName(contact))" aria-hidden="true">{{ initials(contact.firstName, contact.lastName) }}</span>
           <div>
             <h1>{{ fullName(contact) }}</h1>
             <p class="muted">
@@ -237,6 +277,7 @@ const goBack = () => (window.history.state?.back ? router.back() : router.push({
         </div>
 
         <div v-if="isDeleted" class="banner warn" role="status">
+          <TriangleAlert aria-hidden="true" />
           <span>
             This contact is in the trash{{ contact.deletedAt ? ` since ${fmtDateTime(contact.deletedAt)}` : '' }}. It's read-only until you restore it.
             <template v-if="restoreProblem">
@@ -247,32 +288,39 @@ const goBack = () => (window.history.state?.back ? router.back() : router.push({
           </span>
         </div>
 
-        <div class="columns">
-          <form class="card" novalidate @submit.prevent="submit">
-            <h2>Details</h2>
-            <fieldset :disabled="isDeleted" class="plain">
-              <label v-for="f in FIELDS" :key="f.key">
-                {{ f.label }}<span v-if="f.required" aria-hidden="true"> *</span>
-                <input
-                  v-model="form[f.key]" :name="f.key" :type="f.key === 'email' ? 'email' : f.key === 'phone' ? 'tel' : 'text'"
-                  :aria-invalid="!!errorFor(f.key)" :aria-describedby="errorFor(f.key) ? `err-${f.key}` : undefined"
-                />
-                <small v-if="errorFor(f.key)" :id="`err-${f.key}`" class="error">
-                  {{ errorFor(f.key) }}
-                  <RouterLink v-if="f.key === 'email' && existingOwner" :to="{ name: 'contact', params: { id: existingOwner.id } }">Open contact</RouterLink>
-                </small>
-              </label>
-            </fieldset>
+        <div class="tabs" role="tablist" aria-label="Contact sections" @keydown="onTabKey">
+          <button id="tab-details" type="button" role="tab" :aria-selected="tab === 'details'" aria-controls="panel-details" :tabindex="tab === 'details' ? 0 : -1" class="tab" @click="setTab('details')">Details</button>
+          <button id="tab-activity" type="button" role="tab" :aria-selected="tab === 'activity'" aria-controls="panel-activity" :tabindex="tab === 'activity' ? 0 : -1" class="tab" @click="setTab('activity')">
+            Activity<small v-if="activityCount !== undefined">{{ activityCount }}</small>
+          </button>
+        </div>
 
-            <p v-if="saveError" class="error" role="alert">{{ saveError }}</p>
-            <p v-if="saveNotice" class="success" role="status">{{ saveNotice }}</p>
-            <div v-if="!isDeleted" class="row">
-              <button type="submit" class="btn primary" :disabled="!dirty || save.isPending.value">{{ save.isPending.value ? 'Saving…' : 'Save changes' }}</button>
-              <button type="button" class="btn" :disabled="!dirty || save.isPending.value" @click="loadForm(contact)">Reset</button>
-            </div>
-          </form>
+        <div v-show="tab === 'details'" id="panel-details" role="tabpanel" aria-labelledby="tab-details">
+          <div class="columns">
+            <form class="card" novalidate @submit.prevent="submit">
+              <h2>Details</h2>
+              <fieldset :disabled="isDeleted" class="plain">
+                <label v-for="f in FIELDS" :key="f.key">
+                  <span>{{ f.label }}<span v-if="f.required" aria-hidden="true"> *</span></span>
+                  <input
+                    v-model="form[f.key]" :name="f.key" :type="f.key === 'email' ? 'email' : f.key === 'phone' ? 'tel' : 'text'"
+                    :aria-invalid="!!errorFor(f.key)" :aria-describedby="errorFor(f.key) ? `err-${f.key}` : undefined"
+                  />
+                  <small v-if="errorFor(f.key)" :id="`err-${f.key}`" class="error">
+                    {{ errorFor(f.key) }}
+                    <RouterLink v-if="f.key === 'email' && existingOwner" :to="{ name: 'contact', params: { id: existingOwner.id } }">Open contact</RouterLink>
+                  </small>
+                </label>
+              </fieldset>
 
-          <div>
+              <p v-if="saveError" class="error" role="alert">{{ saveError }}</p>
+              <p v-if="saveNotice" class="success" role="status">{{ saveNotice }}</p>
+              <div v-if="!isDeleted" class="row">
+                <button type="submit" class="btn primary" :disabled="!dirty || save.isPending.value">{{ save.isPending.value ? 'Saving…' : 'Save changes' }}</button>
+                <button type="button" class="btn" :disabled="!dirty || save.isPending.value" @click="loadForm(contact)">Reset</button>
+              </div>
+            </form>
+
             <div class="card">
               <h2>Tags</h2>
               <TagEditor
@@ -280,22 +328,32 @@ const goBack = () => (window.history.state?.back ? router.back() : router.push({
                 @add="(names) => addTags.mutate(names)" @remove="(tag) => removeTag.mutate(tag)"
               />
             </div>
+          </div>
+        </div>
 
-            <div class="card">
-              <div class="row between"><h2>Recent activity</h2><span class="muted small-text">Newest first</span></div>
-              <p v-if="activityQuery.isPending.value" class="muted" role="status">Loading activity…</p>
-              <p v-else-if="activityQuery.isError.value" class="error" role="alert">
-                Could not load activity. <button type="button" class="link" @click="activityQuery.refetch()">Retry</button>
-              </p>
-              <p v-else-if="!activityQuery.data.value?.length" class="muted">No activity yet.</p>
-              <ul v-else class="activity">
-                <li v-for="a in activityQuery.data.value" :key="a.id">
-                  <span class="badge" :data-type="a.type">{{ a.type }}</span>
-                  <span>{{ describeActivity(a) }}</span>
-                  <time :datetime="a.createdAt">{{ fmtDateTime(a.createdAt) }}</time>
-                </li>
-              </ul>
+        <div v-show="tab === 'activity'" id="panel-activity" role="tabpanel" aria-labelledby="tab-activity">
+          <div class="card">
+            <div class="row between"><h2>Recent activity</h2><span class="muted small-text">Newest first</span></div>
+            <div v-if="activityQuery.isPending.value" role="status">
+              <span class="sr-only">Loading activity…</span>
+              <div v-for="n in 3" :key="n" class="skel-person" aria-hidden="true" style="margin-bottom: 18px">
+                <span class="skeleton circle" /><div class="stack" style="display: grid; gap: 6px; flex: 1"><span class="skeleton line" style="width: 40%" /><span class="skeleton line" style="width: 25%; height: 8px" /></div>
+              </div>
             </div>
+            <p v-else-if="activityQuery.isError.value" class="error" role="alert">
+              Could not load activity. <button type="button" class="link" @click="activityQuery.refetch()">Retry</button>
+            </p>
+            <EmptyState v-else-if="!activityQuery.data.value?.length" :icon="History" title="No activity yet." text="Edits, tag changes and imports will show up here." />
+            <ol v-else class="timeline">
+              <li v-for="a in activityQuery.data.value" :key="a.id">
+                <span class="tl-icon" :class="TIMELINE[a.type].pal" aria-hidden="true"><component :is="TIMELINE[a.type].icon" /></span>
+                <div>
+                  <div class="tl-title">{{ activityTitle(a) }}</div>
+                  <div v-if="activityDetail(a)" class="tl-sub">{{ activityDetail(a) }}</div>
+                  <time class="tl-time" :datetime="a.createdAt">{{ fmtDateTime(a.createdAt) }}</time>
+                </div>
+              </li>
+            </ol>
           </div>
         </div>
 

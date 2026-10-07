@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { Plus, X } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
+import { pal } from '../format';
 import type { Tag } from '../types';
 import { validateTagName } from '../validation';
 
@@ -70,9 +72,9 @@ defineExpose({ clear });
 <template>
   <div class="tag-editor">
     <ul class="chips" aria-label="Assigned tags">
-      <li v-for="t in tags" :key="t.id" class="chip">
+      <li v-for="t in tags" :key="t.id" class="chip" :class="pal(t.name)">
         {{ t.name }}
-        <button type="button" class="chip-x" :disabled="busy" :aria-label="`Remove tag ${t.name}`" @click="emit('remove', t)">×</button>
+        <button type="button" class="chip-x" :disabled="busy" :aria-label="`Remove tag ${t.name}`" @click="emit('remove', t)"><X :size="12" aria-hidden="true" /></button>
       </li>
       <li v-if="!tags.length" class="muted">No tags yet</li>
     </ul>
@@ -84,12 +86,12 @@ defineExpose({ clear });
           :disabled="busy" @keydown.enter.prevent="onEnter" @keydown="onKey"
         />
         <datalist id="tag-suggestions"><option v-for="s in suggestions" :key="s.id" :value="s.name" /></datalist>
-        <button type="submit" class="btn" :disabled="busy || pending === 0">{{ pending > 1 ? `Add ${pending} tags` : 'Add tag' }}</button>
+        <button type="submit" class="btn" :disabled="busy || pending === 0"><Plus aria-hidden="true" />{{ pending > 1 ? `Add ${pending} tags` : 'Add tag' }}</button>
       </div>
       <ul v-if="staged.length" class="chips staged" aria-label="Tags waiting to be added">
         <li v-for="s in staged" :key="s" class="chip pending">
           {{ s }}
-          <button type="button" class="chip-x" :disabled="busy" :aria-label="`Don't add ${s}`" @click="unstage(s)">×</button>
+          <button type="button" class="chip-x" :disabled="busy" :aria-label="`Don't add ${s}`" @click="unstage(s)"><X :size="12" aria-hidden="true" /></button>
         </li>
       </ul>
       <small class="muted">Press Enter or comma after each tag to line up several, then add them together.</small>

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useMutation, useQuery } from '@tanstack/vue-query';
+import { X } from 'lucide-vue-next';
 import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue';
+import { pal } from '../format';
 import { api, ApiError } from '../api';
 import { FIELDS, type Contact, type ContactFields } from '../types';
 import { validateContact, validateTagName } from '../validation';
@@ -79,7 +81,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey));
     <form class="dialog" novalidate @submit.prevent="submit">
       <div class="row between">
         <h2 id="add-title">Add contact</h2>
-        <button type="button" class="icon-btn" aria-label="Close" @click="emit('close')">×</button>
+        <button type="button" class="icon-btn" aria-label="Close" @click="emit('close')"><X aria-hidden="true" /></button>
       </div>
 
       <div class="grid2">
@@ -119,8 +121,8 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey));
         <small v-if="tagError" class="error">{{ tagError }}</small>
       </label>
       <ul v-if="tags.length" class="chips" aria-label="Tags to add">
-        <li v-for="t in tags" :key="t" class="chip">
-          {{ t }}<button type="button" class="chip-x" :aria-label="`Remove tag ${t}`" @click="removeTag(t)">×</button>
+        <li v-for="t in tags" :key="t" class="chip" :class="pal(t)">
+          {{ t }}<button type="button" class="chip-x" :aria-label="`Remove tag ${t}`" @click="removeTag(t)"><X :size="12" aria-hidden="true" /></button>
         </li>
       </ul>
 

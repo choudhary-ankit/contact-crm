@@ -23,7 +23,7 @@ describe('ContactsView - active list: create, trash, bulk', () => {
     mockFetch({ ...tagsRoute, 'GET /contacts': () => json(200, page([ada])) });
     const { wrapper: w } = await mountWithApp(ContactsView);
     await vi.waitFor(() => expect(w.text()).toContain('Ada Lovelace'));
-    await button(w, '+ Add contact').trigger('click');
+    await button(w, 'Add contact').trigger('click');
     expect(w.find('[role=dialog]').text()).toContain('Add contact');
   });
 

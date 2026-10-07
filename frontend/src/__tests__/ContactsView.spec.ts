@@ -84,6 +84,7 @@ describe('ContactsView states', () => {
     route({ contacts: () => ok(page([contact('1', 'Ada')])) });
     const w = await mountView();
     await vi.waitFor(() => expect(w.text()).toContain('Ada Tester'));
+    await w.findAll('button').find((b) => b.text().startsWith('Filters'))!.trigger('click'); // dates live in the Filters popover
     const [from, to] = w.findAll('input[type=date]');
     await from.setValue('2025-06-01');
     await to.setValue('2025-01-01');

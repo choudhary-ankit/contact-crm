@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query';
+import { ArrowLeft, CircleAlert, CircleCheck } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { api, ApiError } from '../api';
@@ -89,7 +90,7 @@ const fieldLabel = (f: string | null) => (f ? f.replace(/_/g, ' ') : '');
 <template>
   <section>
     <header class="page-header">
-      <RouterLink :to="{ name: 'imports' }" class="link">← Imports</RouterLink>
+      <RouterLink :to="{ name: 'imports' }" class="btn small"><ArrowLeft aria-hidden="true" />Imports</RouterLink>
       <h1>{{ j ? j.filename : 'Import' }}</h1>
       <span v-if="j" class="pill" :data-status="j.status">{{ j.status === 'ready' ? 'Ready to ' + (isUpdate ? 'update' : 'import') : j.status }}</span>
     </header>
@@ -115,6 +116,7 @@ const fieldLabel = (f: string | null) => (f ? f.replace(/_/g, ' ') : '');
 
         <!-- 2. unusable file -->
         <div v-else-if="j.status === 'failed'" class="banner danger" role="alert">
+          <CircleAlert aria-hidden="true" />
           <span><strong>This file couldn't be used.</strong> {{ j.failureReason }}</span>
           <RouterLink :to="{ name: 'import-new', query: isUpdate ? { mode: 'update' } : {} }" class="btn small">Upload another file</RouterLink>
         </div>
@@ -152,7 +154,7 @@ const fieldLabel = (f: string | null) => (f ? f.replace(/_/g, ' ') : '');
 
         <!-- 5. done -->
         <template v-else-if="j.status === 'completed'">
-          <div class="banner ok" role="status"><span><strong>Import finished.</strong> {{ fmtNumber(j.processedRows) }} rows processed{{ j.finishedAt ? ` · ${fmtDateTime(j.finishedAt)}` : '' }}.</span></div>
+          <div class="banner ok" role="status"><CircleCheck aria-hidden="true" /><span><strong>Import finished.</strong> {{ fmtNumber(j.processedRows) }} rows processed{{ j.finishedAt ? ` · ${fmtDateTime(j.finishedAt)}` : '' }}.</span></div>
           <div class="kpis">
             <div v-if="!isUpdate" class="kpi ok"><span class="sub">Contacts added</span><b>{{ fmtNumber(j.createdCount) }}</b></div>
             <template v-else>
