@@ -1,0 +1,9 @@
+first_name,last_name,email,phone,company,tags
+Margaret,Hamilton,margaret.hamilton@apollo.example,+1 617 555 0101,Apollo Guidance,VIP;Lead
+Katherine,Johnson,katherine.johnson@nasa.example,(757) 555-0102,NASA,Customer
+Dorothy,Vaughan,dorothy.vaughan@nasa.example,,NASA,Customer;Prospect
+Mary,Jackson,mary.jackson@nasa.example,,NASA,
+Bad,Email,not-an-email,,,
+,MissingFirstName,missing.first@example.com,,,
+Duplicate,Email,margaret.hamilton@apollo.example,,,
+Short,Phone,short.phone@example.com,12,,
