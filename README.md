@@ -10,6 +10,19 @@ the public palette of gohighlevel.com. It uses no HighLevel logo or branding.
 - **Backend:** NestJS 11 + TypeScript
 - **Database:** PostgreSQL 16
 
+## Live demo
+
+| | |
+|---|---|
+| **App** | https://contact-crm-frontend.netlify.app |
+| **API** | https://contact-crm-api.onrender.com (health: `/health`, interactive docs: `/docs`) |
+| **Source** | https://github.com/choudhary-ankit/contact-crm |
+
+- The demo runs on free hosting tiers, so if nobody has used it for a while the **first request can take up to a minute** while the backend wakes up. After that it is fast.
+- It contains **synthetic seed data only** (about 10,000 contacts, tags, a few trashed contacts and some history). Feel free to edit, delete, import and export.
+- The deployed frontend carries a **public demo API key**, so anyone with the link can use the demo. This is demo-grade authentication; see *Known issues* for what production would use.
+- Good places to start: search for `sam smith`, open **Metrics** and click a "Needs attention" **View** link, or import `docs/samples/try-add-contacts.csv` from **Imports**.
+
 ## Run it
 
 Prerequisites: Node 20+ and Docker.
@@ -37,7 +50,7 @@ The frontend proxies `/api/*` to the backend, so no CORS setup is needed. It aut
 ### Tests
 
 ```bash
-cd backend  && npm test     # 159 tests; unit + API integration against a real Postgres (crm_test)
+cd backend  && npm test     # 170 tests; unit + API integration against a real Postgres (crm_test)
 cd frontend && npm test     # 113 tests; API client, dialogs, create form, list/trash/detail, import wizard/job/history, metrics
 ```
 
@@ -71,6 +84,33 @@ ID=<contact id from the URL>
 curl -X PATCH localhost:3000/contacts/$ID -H 'Authorization: Bearer demo-key' \
   -H 'Content-Type: application/json' -H 'If-Match: "1"' -d '{"company":"Changed by user B"}'
 ```
+
+## Deployment
+
+Three separately hosted pieces, all described in code:
+
+| Piece | Host | Defined in |
+|---|---|---|
+| PostgreSQL 16 | Neon | managed; the backend applies `migrations/` itself on boot (guarded by an advisory lock) |
+| Backend (NestJS, includes the import worker) | Render, as a Docker web service | `backend/Dockerfile`, `render.yaml` |
+| Frontend (static build) | Netlify | `frontend/netlify.toml` |
+
+The backend must be a long-running server (not serverless) because the CSV import worker runs inside it. The frontend calls the backend directly with CORS, so the backend sees each visitor's real IP for rate limiting (`TRUST_PROXY=1`).
+
+**Backend settings** (never committed; set in the host's dashboard):
+
+| Variable | Meaning |
+|---|---|
+| `DATABASE_URL` | Postgres connection string (use the direct, non-pooled one: migrations use a session advisory lock) |
+| `API_KEYS` | `<secret key>:<account uuid>`, comma-separated for several. The part before `:` is the key clients send; the part after is the account whose data it can see |
+| `CORS_ORIGIN` | the frontend's origin, exactly, with no trailing slash (comma-separate several) |
+| `TRUST_PROXY` | `1` behind Render's proxy |
+
+The server **refuses to start** with a malformed `API_KEYS` (for example only an account id), and in production also rejects the built-in demo keys and keys shorter than 16 characters, with a message that never prints the secret.
+
+**Frontend settings** (build-time, so changing them needs a redeploy): `VITE_API_URL` (the backend's address) and `VITE_API_KEY` (the secret key only, **without** the `:account` part).
+
+To create the demo data in a fresh database: `DATABASE_URL=<url> SEED_COUNT=10000 npm run seed` from `backend/` (this replaces the demo accounts' data, so use it only on a demo database).
 
 ## Tech stack and why
 
