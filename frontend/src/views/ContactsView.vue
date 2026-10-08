@@ -4,7 +4,7 @@ import {
   ArrowUpDown, ChevronLeft, ChevronRight, CircleAlert, Download, Eye, Tag as TagIcon, Trash2, TriangleAlert, Upload, UserPlus, Users, X,
   Plus, Search, SearchX, RotateCcw,
 } from 'lucide-vue-next';
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { api, ApiError } from '../api';
 import ConfirmDialog from '../components/ConfirmDialog.vue';
@@ -223,13 +223,17 @@ async function exportCsv() {
 
 // ---- create (also opened by the command palette via ?new=1)
 const showCreate = ref(false);
-onMounted(() => {
-  if (route.query.new && !isTrash.value) {
+// Watch the address instead of checking once on load: when this page is already open, going to ?new=1 does not rebuild it.
+watch(
+  () => route.query.new,
+  (flag) => {
+    if (!flag || isTrash.value) return;
     showCreate.value = true;
     const { new: _n, ...rest } = route.query;
-    router.replace({ query: rest });
-  }
-});
+    router.replace({ query: rest }); // keep the filters, drop the one-shot flag
+  },
+  { immediate: true },
+);
 function onCreated(c: Contact) {
   showCreate.value = false;
   refreshAll();

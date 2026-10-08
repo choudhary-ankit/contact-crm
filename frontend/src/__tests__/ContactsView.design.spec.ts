@@ -190,6 +190,20 @@ describe('table design', () => {
 });
 
 describe('quick add', () => {
+  it('opens the create form even when the list is ALREADY open (the quick-search "Add contact" case), keeping the filters', async () => {
+    const { wrapper: w, router } = await open({}, '/?company=acme'); // list on screen, filter active
+    expect(w.find('[role=dialog]').exists()).toBe(false);
+    await router.push({ name: 'contacts', query: { company: 'acme', new: '1' } }); // what the palette does from this very page
+    await vi.waitFor(() => expect(w.find('[role=dialog]').text()).toContain('Add contact'));
+    await vi.waitFor(() => expect(router.currentRoute.value.query.new).toBeUndefined());
+    expect(router.currentRoute.value.query.company).toBe('acme'); // the filter survives
+    // and it keeps working: close it, ask again, it opens again
+    await w.find('button[aria-label=Close]').trigger('click');
+    expect(w.find('[role=dialog]').exists()).toBe(false);
+    await router.push({ name: 'contacts', query: { company: 'acme', new: '1' } });
+    await vi.waitFor(() => expect(w.find('[role=dialog]').exists()).toBe(true));
+  });
+
   it('opens the create form when the palette sends you here with ?new=1, and cleans the URL', async () => {
     const { wrapper: w, router } = await open({}, '/?new=1');
     await vi.waitFor(() => expect(w.find('[role=dialog]').text()).toContain('Add contact'));
