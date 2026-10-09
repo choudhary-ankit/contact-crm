@@ -22,6 +22,7 @@ export async function runMigrations(pool: Pool): Promise<string[]> {
       if (done.has(file)) continue;
       try {
         await client.query('BEGIN');
+        await client.query('SET LOCAL statement_timeout = 0'); // index builds on big tables can take minutes; applies to this transaction only
         await client.query(readFileSync(join(MIGRATIONS_DIR, file), 'utf8'));
         await client.query('INSERT INTO schema_migrations (name) VALUES ($1)', [file]);
         await client.query('COMMIT');

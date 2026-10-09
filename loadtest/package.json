@@ -1,0 +1,15 @@
+{
+  "name": "crm-loadtest",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ramp-up load tests for the CRM API (local use only)",
+  "scripts": {
+    "ramp": "node ramp.mjs",
+    "imports": "node imports-bench.mjs",
+    "summary": "node summarize.mjs"
+  },
+  "dependencies": {
+    "autocannon": "^8.0.0"
+  }
+}

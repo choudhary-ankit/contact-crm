@@ -8,25 +8,70 @@ export type Range = (typeof RANGES)[number];
 
 const dayKey = (d: Date) => d.toISOString().slice(0, 10);
 
+interface Entry {
+  at: number;
+  value: unknown;
+}
+
 @Injectable()
 export class MetricsService {
-  private cache = new Map<string, { at: number; value: unknown }>();
+  private cache = new Map<string, Entry>();
+  /** computations currently running, so concurrent requests share one instead of each starting their own */
+  private inflight = new Map<string, Promise<unknown>>();
+  private running = 0;
+  private waiters: Array<() => void> = [];
 
   constructor(private readonly db: DatabaseService) {}
 
   /**
-   * All dashboard numbers in one payload. Computed on demand and cached briefly per account+range.
-   * At very large scale these become incrementally-maintained rollups (see README).
+   * All dashboard numbers in one payload. Computing them is expensive (full scans of the contacts table), so:
+   *  - fresh cache entries are served as they are;
+   *  - concurrent requests for the same numbers share ONE computation (single flight), instead of every request
+   *    starting its own the moment the cache expires, which can saturate the database (a "cache stampede");
+   *  - an expired entry is still served immediately (up to METRICS_MAX_STALE_MS) while exactly one refresh runs;
+   *  - only a few computations may run at once overall, whatever the mix of accounts and periods.
+   * At very large scale this becomes incrementally maintained rollups (see README).
    */
   async get(accountId: string, range: Range) {
-    const ttl = loadConfig().metricsCacheTtlMs;
+    const { metricsCacheTtlMs: ttl, metricsMaxStaleMs: maxStale } = loadConfig();
     const key = `${accountId}:${range}`;
     const hit = this.cache.get(key);
-    if (ttl > 0 && hit && Date.now() - hit.at < ttl) return hit.value;
+    const age = hit ? Date.now() - hit.at : Infinity;
 
-    const value = await this.compute(accountId, range);
-    if (ttl > 0) this.cache.set(key, { at: Date.now(), value });
-    return value;
+    if (ttl > 0 && hit && age < ttl) return hit.value; // fresh
+
+    const refresh = this.refresh(key, accountId, range, ttl);
+    if (ttl > 0 && hit && age < maxStale) {
+      refresh.catch(() => undefined); // keep serving the old numbers; a failed refresh will be retried by the next request
+      return hit.value;
+    }
+    return refresh;
+  }
+
+  private refresh(key: string, accountId: string, range: Range, ttl: number): Promise<unknown> {
+    const running = this.inflight.get(key);
+    if (running) return running;
+    const p = this.limited(() => this.compute(accountId, range))
+      .then((value) => {
+        if (ttl > 0) this.cache.set(key, { at: Date.now(), value });
+        return value;
+      })
+      .finally(() => this.inflight.delete(key));
+    this.inflight.set(key, p);
+    return p;
+  }
+
+  /** A tiny semaphore. A finishing computation hands its slot straight to the next waiter, so the limit is never exceeded. */
+  private async limited<T>(fn: () => Promise<T>): Promise<T> {
+    if (this.running < loadConfig().metricsMaxConcurrent) this.running++;
+    else await new Promise<void>((resolve) => this.waiters.push(resolve)); // resumes already holding a slot
+    try {
+      return await fn();
+    } finally {
+      const next = this.waiters.shift();
+      if (next) next();
+      else this.running--;
+    }
   }
 
   private async compute(accountId: string, range: Range) {

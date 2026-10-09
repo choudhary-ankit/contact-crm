@@ -1,0 +1,133 @@
+{
+  "url": "http://localhost:3400",
+  "clients": 64,
+  "seconds": 6,
+  "metricsRequestsCompleted": 0,
+  "metricsTimeouts": 0,
+  "metricsLatencyMs": {
+    "p50": 0,
+    "p99": 0,
+    "max": 0
+  },
+  "peakQueriesInPostgres": 14,
+  "secondsUntilPostgresIdle": 86,
+  "collateral": {
+    "probeRequests": 24,
+    "ok": 16,
+    "failedOrTimedOut": 8,
+    "over1s": 1,
+    "p50Ms": 23,
+    "p99Ms": 10000,
+    "maxMs": 10000
+  },
+  "timeline": [
+    {
+      "sinceLoadEndSec": 1,
+      "active": 12
+    },
+    {
+      "sinceLoadEndSec": 4,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 7,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 10,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 14,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 17,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 20,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 24,
+      "active": 13
+    },
+    {
+      "sinceLoadEndSec": 27,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 30,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 34,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 37,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 40,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 43,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 47,
+      "active": 12
+    },
+    {
+      "sinceLoadEndSec": 50,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 53,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 56,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 60,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 63,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 66,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 69,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 73,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 76,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 79,
+      "active": 14
+    },
+    {
+      "sinceLoadEndSec": 82,
+      "active": 9
+    },
+    {
+      "sinceLoadEndSec": 86,
+      "active": 0
+    }
+  ]
+}

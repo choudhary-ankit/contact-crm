@@ -1,0 +1,6534 @@
+{
+  "label": "1M",
+  "when": "2026-10-08T07:17:23.102Z",
+  "stepSeconds": 8,
+  "limits": {
+    "p99Ms": 2000,
+    "failRate": 0.005
+  },
+  "results": [
+    {
+      "name": "health",
+      "title": "GET /health (one database ping)",
+      "group": "light",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 3392,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 1059,
+          "total": 30053,
+          "ok": 30053,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.2,
+          "apiCpu": 47.7,
+          "apiRssMb": 118,
+          "dbCpu": 0.8,
+          "dbMem": "280MiB",
+          "codes": {
+            "200": {
+              "count": 30053
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 8293,
+          "p50": 0,
+          "p97": 1,
+          "p99": 2,
+          "max": 1049,
+          "total": 73397,
+          "ok": 73397,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 3,
+          "apiCpu": 119.5,
+          "apiRssMb": 112,
+          "dbCpu": 0.17,
+          "dbMem": "280.6MiB",
+          "codes": {
+            "200": {
+              "count": 73397
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 7749,
+          "p50": 3,
+          "p97": 6,
+          "p99": 7,
+          "max": 1049,
+          "total": 68577,
+          "ok": 68577,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.8,
+          "apiCpu": 115.9,
+          "apiRssMb": 114,
+          "dbCpu": 0.16,
+          "dbMem": "282.8MiB",
+          "codes": {
+            "200": {
+              "count": 68577
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 8200,
+          "p50": 6,
+          "p97": 9,
+          "p99": 12,
+          "max": 1068,
+          "total": 72650,
+          "ok": 72650,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 3,
+          "apiCpu": 99.2,
+          "apiRssMb": 184,
+          "dbCpu": 0.08,
+          "dbMem": "283.3MiB",
+          "codes": {
+            "200": {
+              "count": 72650
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 7894,
+          "p50": 13,
+          "p97": 21,
+          "p99": 31,
+          "max": 1069,
+          "total": 69937,
+          "ok": 69937,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.9,
+          "apiCpu": 100.9,
+          "apiRssMb": 184,
+          "dbCpu": 0.28,
+          "dbMem": "283.4MiB",
+          "codes": {
+            "200": {
+              "count": 69937
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 256,
+          "rps": 8068,
+          "p50": 27,
+          "p97": 33,
+          "p99": 39,
+          "max": 1103,
+          "total": 71647,
+          "ok": 71647,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 3,
+          "apiCpu": 111.8,
+          "apiRssMb": 191,
+          "dbCpu": 0.21,
+          "dbMem": "283.1MiB",
+          "codes": {
+            "200": {
+              "count": 71647
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 8293,
+        "kneeAt": 8,
+        "comfortableAt": 256,
+        "comfortableRps": 8068,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "tags-list",
+      "title": "GET /tags",
+      "group": "light",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 851,
+          "p50": 0,
+          "p97": 2,
+          "p99": 3,
+          "max": 1131,
+          "total": 7602,
+          "ok": 7602,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.8,
+          "apiCpu": 39.7,
+          "apiRssMb": 212,
+          "dbCpu": 0.18,
+          "dbMem": "283.6MiB",
+          "codes": {
+            "200": {
+              "count": 7602
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1703,
+          "p50": 3,
+          "p97": 6,
+          "p99": 7,
+          "max": 1058,
+          "total": 15088,
+          "ok": 15088,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.5,
+          "apiCpu": 109.9,
+          "apiRssMb": 191,
+          "dbCpu": 1.14,
+          "dbMem": "279.8MiB",
+          "codes": {
+            "200": {
+              "count": 15088
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 1303,
+          "p50": 20,
+          "p97": 30,
+          "p99": 41,
+          "max": 1089,
+          "total": 11554,
+          "ok": 11554,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.1,
+          "apiCpu": 103.6,
+          "apiRssMb": 194,
+          "dbCpu": 2.73,
+          "dbMem": "283.5MiB",
+          "codes": {
+            "200": {
+              "count": 11554
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 1075,
+          "p50": 50,
+          "p97": 66,
+          "p99": 115,
+          "max": 1124,
+          "total": 9547,
+          "ok": 9547,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.9,
+          "apiCpu": 103.3,
+          "apiRssMb": 260,
+          "dbCpu": 2.73,
+          "dbMem": "283.2MiB",
+          "codes": {
+            "200": {
+              "count": 9547
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 941,
+          "p50": 115,
+          "p97": 233,
+          "p99": 1126,
+          "max": 1193,
+          "total": 8364,
+          "ok": 8364,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.8,
+          "apiCpu": 102.6,
+          "apiRssMb": 241,
+          "dbCpu": 2.74,
+          "dbMem": "283.8MiB",
+          "codes": {
+            "200": {
+              "count": 8364
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 256,
+          "rps": 848,
+          "p50": 252,
+          "p97": 1211,
+          "p99": 1302,
+          "max": 1693,
+          "total": 7553,
+          "ok": 7553,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.7,
+          "apiCpu": 104.2,
+          "apiRssMb": 191,
+          "dbCpu": 0.13,
+          "dbMem": "284.2MiB",
+          "codes": {
+            "200": {
+              "count": 7553
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1703,
+        "kneeAt": 8,
+        "comfortableAt": 64,
+        "comfortableRps": 1075,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "imports-formats",
+      "title": "GET /imports/formats (static)",
+      "group": "light",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 1931,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 1051,
+          "total": 17091,
+          "ok": 17091,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 5.6,
+          "apiCpu": 90,
+          "apiRssMb": 194,
+          "dbCpu": 0.24,
+          "dbMem": "283.4MiB",
+          "codes": {
+            "200": {
+              "count": 17091
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1432,
+          "p50": 4,
+          "p97": 9,
+          "p99": 9,
+          "max": 1130,
+          "total": 12749,
+          "ok": 12749,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 4.1,
+          "apiCpu": 90.1,
+          "apiRssMb": 181,
+          "dbCpu": 1,
+          "dbMem": "266.7MiB",
+          "codes": {
+            "200": {
+              "count": 12749
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 1002,
+          "p50": 24,
+          "p97": 75,
+          "p99": 114,
+          "max": 1087,
+          "total": 8881,
+          "ok": 8881,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.9,
+          "apiCpu": 100,
+          "apiRssMb": 157,
+          "dbCpu": 0.22,
+          "dbMem": "266.3MiB",
+          "codes": {
+            "200": {
+              "count": 8881
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 1014,
+          "p50": 53,
+          "p97": 85,
+          "p99": 153,
+          "max": 1261,
+          "total": 8980,
+          "ok": 8980,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.9,
+          "apiCpu": 105.7,
+          "apiRssMb": 162,
+          "dbCpu": 0.17,
+          "dbMem": "266.6MiB",
+          "codes": {
+            "200": {
+              "count": 8980
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 929,
+          "p50": 103,
+          "p97": 192,
+          "p99": 1139,
+          "max": 5853,
+          "total": 8250,
+          "ok": 8250,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.7,
+          "apiCpu": 101.1,
+          "apiRssMb": 203,
+          "dbCpu": 0.14,
+          "dbMem": "266.6MiB",
+          "codes": {
+            "200": {
+              "count": 8250
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 256,
+          "rps": 950,
+          "p50": 94,
+          "p97": 1135,
+          "p99": 5850,
+          "max": 8769,
+          "total": 8421,
+          "ok": 8421,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.7,
+          "apiCpu": 108.4,
+          "apiRssMb": 154,
+          "dbCpu": 0.14,
+          "dbMem": "266.6MiB",
+          "codes": {
+            "200": {
+              "count": 8421
+            }
+          },
+          "break": "p99 latency 5850 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 1931,
+        "kneeAt": 1,
+        "comfortableAt": 64,
+        "comfortableRps": 1014,
+        "breakAt": {
+          "level": 256,
+          "reason": "p99 latency 5850 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "imports-list",
+      "title": "GET /imports (history)",
+      "group": "light",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 1013,
+          "p50": 0,
+          "p97": 2,
+          "p99": 2,
+          "max": 1085,
+          "total": 9002,
+          "ok": 9002,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 47.6,
+          "apiRssMb": 220,
+          "dbCpu": 0.25,
+          "dbMem": "279.3MiB",
+          "codes": {
+            "200": {
+              "count": 9002
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1475,
+          "p50": 4,
+          "p97": 10,
+          "p99": 15,
+          "max": 1050,
+          "total": 13051,
+          "ok": 13051,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.7,
+          "apiCpu": 106.5,
+          "apiRssMb": 171,
+          "dbCpu": 0.13,
+          "dbMem": "279.5MiB",
+          "codes": {
+            "200": {
+              "count": 13051
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 1214,
+          "p50": 20,
+          "p97": 34,
+          "p99": 53,
+          "max": 1371,
+          "total": 9896,
+          "ok": 9896,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 100,
+          "apiRssMb": 178,
+          "dbCpu": 1.95,
+          "dbMem": "289.6MiB",
+          "codes": {
+            "200": {
+              "count": 9896
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 1036,
+          "p50": 47,
+          "p97": 87,
+          "p99": 132,
+          "max": 1708,
+          "total": 8763,
+          "ok": 8763,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 103.1,
+          "apiRssMb": 200,
+          "dbCpu": 0.21,
+          "dbMem": "283.3MiB",
+          "codes": {
+            "200": {
+              "count": 8763
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 822,
+          "p50": 117,
+          "p97": 533,
+          "p99": 1722,
+          "max": 1781,
+          "total": 6968,
+          "ok": 6968,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 98.4,
+          "apiRssMb": 214,
+          "dbCpu": 0.24,
+          "dbMem": "283.6MiB",
+          "codes": {
+            "200": {
+              "count": 6968
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 256,
+          "rps": 1007,
+          "p50": 203,
+          "p97": 1199,
+          "p99": 1295,
+          "max": 2123,
+          "total": 8973,
+          "ok": 8973,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 103.3,
+          "apiRssMb": 186,
+          "dbCpu": 0.15,
+          "dbMem": "283.4MiB",
+          "codes": {
+            "200": {
+              "count": 8973
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1475,
+        "kneeAt": 8,
+        "comfortableAt": 64,
+        "comfortableRps": 1036,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "get-contact",
+      "title": "GET /contacts/:id",
+      "group": "light",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 661,
+          "p50": 0,
+          "p97": 3,
+          "p99": 3,
+          "max": 1268,
+          "total": 5324,
+          "ok": 5324,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 50.6,
+          "apiRssMb": 211,
+          "dbCpu": 0.22,
+          "dbMem": "287.5MiB",
+          "codes": {
+            "200": {
+              "count": 5324
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1335,
+          "p50": 3,
+          "p97": 13,
+          "p99": 31,
+          "max": 1746,
+          "total": 11401,
+          "ok": 11401,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.2,
+          "apiCpu": 58.5,
+          "apiRssMb": 193,
+          "dbCpu": 0.28,
+          "dbMem": "283.1MiB",
+          "codes": {
+            "200": {
+              "count": 11401
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 1323,
+          "p50": 20,
+          "p97": 34,
+          "p99": 55,
+          "max": 1091,
+          "total": 11732,
+          "ok": 11732,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.1,
+          "apiCpu": 96.7,
+          "apiRssMb": 201,
+          "dbCpu": 0.19,
+          "dbMem": "287.5MiB",
+          "codes": {
+            "200": {
+              "count": 11732
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 1040,
+          "p50": 50,
+          "p97": 85,
+          "p99": 166,
+          "max": 1130,
+          "total": 9237,
+          "ok": 9237,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.8,
+          "apiCpu": 86.3,
+          "apiRssMb": 216,
+          "dbCpu": 0.32,
+          "dbMem": "286.9MiB",
+          "codes": {
+            "200": {
+              "count": 9237
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 948,
+          "p50": 114,
+          "p97": 223,
+          "p99": 1103,
+          "max": 1170,
+          "total": 8408,
+          "ok": 8408,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.8,
+          "apiCpu": 103.9,
+          "apiRssMb": 202,
+          "dbCpu": 0.16,
+          "dbMem": "287.8MiB",
+          "codes": {
+            "200": {
+              "count": 8408
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 256,
+          "rps": 1003,
+          "p50": 213,
+          "p97": 1131,
+          "p99": 1217,
+          "max": 1261,
+          "total": 8916,
+          "ok": 8916,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.8,
+          "apiCpu": 103.5,
+          "apiRssMb": 164,
+          "dbCpu": 0.49,
+          "dbMem": "288.2MiB",
+          "codes": {
+            "200": {
+              "count": 8916
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1335,
+        "kneeAt": 8,
+        "comfortableAt": 64,
+        "comfortableRps": 1040,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "get-activity",
+      "title": "GET /contacts/:id/activity",
+      "group": "light",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 695,
+          "p50": 0,
+          "p97": 3,
+          "p99": 4,
+          "max": 1090,
+          "total": 6176,
+          "ok": 6176,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 52.5,
+          "apiRssMb": 175,
+          "dbCpu": 0.26,
+          "dbMem": "287.6MiB",
+          "codes": {
+            "200": {
+              "count": 6176
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1527,
+          "p50": 4,
+          "p97": 10,
+          "p99": 13,
+          "max": 1048,
+          "total": 13516,
+          "ok": 13516,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.7,
+          "apiCpu": 92.7,
+          "apiRssMb": 187,
+          "dbCpu": 3.85,
+          "dbMem": "291.4MiB",
+          "codes": {
+            "200": {
+              "count": 13516
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 1335,
+          "p50": 20,
+          "p97": 30,
+          "p99": 48,
+          "max": 1076,
+          "total": 11832,
+          "ok": 11832,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 101.8,
+          "apiRssMb": 162,
+          "dbCpu": 4.02,
+          "dbMem": "287.4MiB",
+          "codes": {
+            "200": {
+              "count": 11832
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 1052,
+          "p50": 51,
+          "p97": 78,
+          "p99": 113,
+          "max": 1110,
+          "total": 9332,
+          "ok": 9332,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 100.3,
+          "apiRssMb": 188,
+          "dbCpu": 2.28,
+          "dbMem": "287.1MiB",
+          "codes": {
+            "200": {
+              "count": 9332
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 883,
+          "p50": 124,
+          "p97": 214,
+          "p99": 1117,
+          "max": 1183,
+          "total": 7834,
+          "ok": 7834,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 100.6,
+          "apiRssMb": 187,
+          "dbCpu": 1.67,
+          "dbMem": "287.3MiB",
+          "codes": {
+            "200": {
+              "count": 7834
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 256,
+          "rps": 854,
+          "p50": 237,
+          "p97": 1179,
+          "p99": 1296,
+          "max": 1366,
+          "total": 7583,
+          "ok": 7583,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 100.9,
+          "apiRssMb": 150,
+          "dbCpu": 0.22,
+          "dbMem": "287.5MiB",
+          "codes": {
+            "200": {
+              "count": 7583
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1527,
+        "kneeAt": 8,
+        "comfortableAt": 64,
+        "comfortableRps": 1052,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "list-first-page",
+      "title": "GET /contacts (first page, newest first, with total)",
+      "group": "list",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 192,
+          "p50": 4,
+          "p97": 9,
+          "p99": 17,
+          "max": 1064,
+          "total": 1702,
+          "ok": 1702,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.7,
+          "apiCpu": 41.3,
+          "apiRssMb": 91,
+          "dbCpu": 0.18,
+          "dbMem": "288MiB",
+          "codes": {
+            "200": {
+              "count": 1702
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 533,
+          "p50": 3,
+          "p97": 6,
+          "p99": 8,
+          "max": 4470,
+          "total": 5472,
+          "ok": 5472,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 7.1,
+          "apiCpu": 0,
+          "apiRssMb": 108,
+          "dbCpu": 0.13,
+          "dbMem": "276.3MiB",
+          "codes": {
+            "200": {
+              "count": 5472
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1273,
+          "p50": 5,
+          "p97": 9,
+          "p99": 14,
+          "max": 1043,
+          "total": 11251,
+          "ok": 11251,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 10.9,
+          "apiCpu": 83.7,
+          "apiRssMb": 167,
+          "dbCpu": 2.28,
+          "dbMem": "285.3MiB",
+          "codes": {
+            "200": {
+              "count": 11251
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 1201,
+          "p50": 10,
+          "p97": 22,
+          "p99": 28,
+          "max": 1077,
+          "total": 10649,
+          "ok": 10649,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 10.3,
+          "apiCpu": 99.5,
+          "apiRssMb": 194,
+          "dbCpu": 2.57,
+          "dbMem": "287.6MiB",
+          "codes": {
+            "200": {
+              "count": 10649
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 1002,
+          "p50": 27,
+          "p97": 43,
+          "p99": 55,
+          "max": 1109,
+          "total": 8895,
+          "ok": 8895,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 8.6,
+          "apiCpu": 100.3,
+          "apiRssMb": 172,
+          "dbCpu": 2.67,
+          "dbMem": "287.9MiB",
+          "codes": {
+            "200": {
+              "count": 8895
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 891,
+          "p50": 61,
+          "p97": 81,
+          "p99": 131,
+          "max": 1128,
+          "total": 7914,
+          "ok": 7914,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 7.7,
+          "apiCpu": 103.3,
+          "apiRssMb": 185,
+          "dbCpu": 2.45,
+          "dbMem": "287.9MiB",
+          "codes": {
+            "200": {
+              "count": 7914
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 790,
+          "p50": 138,
+          "p97": 241,
+          "p99": 1144,
+          "max": 1204,
+          "total": 7023,
+          "ok": 7023,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 6.8,
+          "apiCpu": 102.3,
+          "apiRssMb": 178,
+          "dbCpu": 1.5,
+          "dbMem": "288.1MiB",
+          "codes": {
+            "200": {
+              "count": 7023
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1273,
+        "kneeAt": 8,
+        "comfortableAt": 64,
+        "comfortableRps": 891,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "list-first-page-name",
+      "title": "GET /contacts (first page, sorted by name)",
+      "group": "list",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 204,
+          "p50": 4,
+          "p97": 6,
+          "p99": 8,
+          "max": 1065,
+          "total": 1809,
+          "ok": 1809,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.1,
+          "apiCpu": 44.4,
+          "apiRssMb": 175,
+          "dbCpu": 0.19,
+          "dbMem": "287.8MiB",
+          "codes": {
+            "200": {
+              "count": 1809
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 678,
+          "p50": 5,
+          "p97": 7,
+          "p99": 9,
+          "max": 1057,
+          "total": 5997,
+          "ok": 5997,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 7,
+          "apiCpu": 88.3,
+          "apiRssMb": 165,
+          "dbCpu": 0.12,
+          "dbMem": "276.9MiB",
+          "codes": {
+            "200": {
+              "count": 5997
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 908,
+          "p50": 7,
+          "p97": 10,
+          "p99": 13,
+          "max": 1067,
+          "total": 8041,
+          "ok": 8041,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.4,
+          "apiCpu": 98.6,
+          "apiRssMb": 230,
+          "dbCpu": 0.65,
+          "dbMem": "285.7MiB",
+          "codes": {
+            "200": {
+              "count": 8041
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 916,
+          "p50": 14,
+          "p97": 21,
+          "p99": 25,
+          "max": 1071,
+          "total": 8107,
+          "ok": 8107,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.5,
+          "apiCpu": 99.7,
+          "apiRssMb": 219,
+          "dbCpu": 0.27,
+          "dbMem": "288.1MiB",
+          "codes": {
+            "200": {
+              "count": 8107
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 886,
+          "p50": 31,
+          "p97": 40,
+          "p99": 58,
+          "max": 1095,
+          "total": 7855,
+          "ok": 7855,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.2,
+          "apiCpu": 107,
+          "apiRssMb": 182,
+          "dbCpu": 0.08,
+          "dbMem": "288MiB",
+          "codes": {
+            "200": {
+              "count": 7855
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 876,
+          "p50": 61,
+          "p97": 88,
+          "p99": 157,
+          "max": 1129,
+          "total": 7773,
+          "ok": 7773,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.1,
+          "apiCpu": 108.1,
+          "apiRssMb": 182,
+          "dbCpu": 0.24,
+          "dbMem": "288MiB",
+          "codes": {
+            "200": {
+              "count": 7773
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 847,
+          "p50": 129,
+          "p97": 221,
+          "p99": 1139,
+          "max": 1206,
+          "total": 7534,
+          "ok": 7534,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 8.8,
+          "apiCpu": 107.7,
+          "apiRssMb": 190,
+          "dbCpu": 6.24,
+          "dbMem": "287.8MiB",
+          "codes": {
+            "200": {
+              "count": 7534
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 916,
+        "kneeAt": 8,
+        "comfortableAt": 64,
+        "comfortableRps": 876,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "list-limit-100",
+      "title": "GET /contacts?limit=100",
+      "group": "list",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 189,
+          "p50": 4,
+          "p97": 6,
+          "p99": 8,
+          "max": 1059,
+          "total": 1672,
+          "ok": 1672,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 6.1,
+          "apiCpu": 45.9,
+          "apiRssMb": 183,
+          "dbCpu": 2.58,
+          "dbMem": "287.4MiB",
+          "codes": {
+            "200": {
+              "count": 1672
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 635,
+          "p50": 5,
+          "p97": 8,
+          "p99": 11,
+          "max": 1058,
+          "total": 5621,
+          "ok": 5621,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 20.5,
+          "apiCpu": 96.1,
+          "apiRssMb": 163,
+          "dbCpu": 3.51,
+          "dbMem": "276.4MiB",
+          "codes": {
+            "200": {
+              "count": 5621
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 743,
+          "p50": 9,
+          "p97": 12,
+          "p99": 16,
+          "max": 1057,
+          "total": 6578,
+          "ok": 6578,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 24,
+          "apiCpu": 99.6,
+          "apiRssMb": 180,
+          "dbCpu": 1.88,
+          "dbMem": "285.7MiB",
+          "codes": {
+            "200": {
+              "count": 6578
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 733,
+          "p50": 18,
+          "p97": 26,
+          "p99": 30,
+          "max": 1075,
+          "total": 6498,
+          "ok": 6498,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 23.7,
+          "apiCpu": 103.1,
+          "apiRssMb": 150,
+          "dbCpu": 0.32,
+          "dbMem": "287.9MiB",
+          "codes": {
+            "200": {
+              "count": 6498
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 696,
+          "p50": 39,
+          "p97": 60,
+          "p99": 72,
+          "max": 1097,
+          "total": 6166,
+          "ok": 6166,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 22.5,
+          "apiCpu": 106.7,
+          "apiRssMb": 188,
+          "dbCpu": 0.26,
+          "dbMem": "288.3MiB",
+          "codes": {
+            "200": {
+              "count": 6166
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 718,
+          "p50": 76,
+          "p97": 101,
+          "p99": 1076,
+          "max": 1164,
+          "total": 6388,
+          "ok": 6388,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 23.3,
+          "apiCpu": 107.1,
+          "apiRssMb": 211,
+          "dbCpu": 0.99,
+          "dbMem": "287.5MiB",
+          "codes": {
+            "200": {
+              "count": 6388
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 696,
+          "p50": 159,
+          "p97": 322,
+          "p99": 1189,
+          "max": 1254,
+          "total": 6199,
+          "ok": 6199,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 22.7,
+          "apiCpu": 110.9,
+          "apiRssMb": 208,
+          "dbCpu": 7.62,
+          "dbMem": "287.6MiB",
+          "codes": {
+            "200": {
+              "count": 6199
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 743,
+        "kneeAt": 8,
+        "comfortableAt": 32,
+        "comfortableRps": 696,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "list-deep-page",
+      "title": "GET /contacts (random deep page via cursor, newest first)",
+      "group": "list",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 275,
+          "p50": 3,
+          "p97": 5,
+          "p99": 5,
+          "max": 1062,
+          "total": 2437,
+          "ok": 2437,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.8,
+          "apiCpu": 47.4,
+          "apiRssMb": 261,
+          "dbCpu": 0.34,
+          "dbMem": "287.5MiB",
+          "codes": {
+            "200": {
+              "count": 2437
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 1017,
+          "p50": 3,
+          "p97": 4,
+          "p99": 5,
+          "max": 1047,
+          "total": 8991,
+          "ok": 8991,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 10.5,
+          "apiCpu": 99.3,
+          "apiRssMb": 245,
+          "dbCpu": 0.18,
+          "dbMem": "276MiB",
+          "codes": {
+            "200": {
+              "count": 8991
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 970,
+          "p50": 6,
+          "p97": 11,
+          "p99": 12,
+          "max": 1066,
+          "total": 8590,
+          "ok": 8590,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 10,
+          "apiCpu": 97,
+          "apiRssMb": 255,
+          "dbCpu": 0.2,
+          "dbMem": "283.1MiB",
+          "codes": {
+            "200": {
+              "count": 8590
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 944,
+          "p50": 14,
+          "p97": 19,
+          "p99": 23,
+          "max": 1063,
+          "total": 8356,
+          "ok": 8356,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.7,
+          "apiCpu": 98.4,
+          "apiRssMb": 243,
+          "dbCpu": 2.64,
+          "dbMem": "287.2MiB",
+          "codes": {
+            "200": {
+              "count": 8356
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 901,
+          "p50": 30,
+          "p97": 40,
+          "p99": 59,
+          "max": 1081,
+          "total": 7970,
+          "ok": 7970,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.3,
+          "apiCpu": 100.1,
+          "apiRssMb": 216,
+          "dbCpu": 2.94,
+          "dbMem": "287.3MiB",
+          "codes": {
+            "200": {
+              "count": 7970
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 946,
+          "p50": 58,
+          "p97": 75,
+          "p99": 143,
+          "max": 1105,
+          "total": 8381,
+          "ok": 8381,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.7,
+          "apiCpu": 105.9,
+          "apiRssMb": 217,
+          "dbCpu": 2.7,
+          "dbMem": "287.1MiB",
+          "codes": {
+            "200": {
+              "count": 8381
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 914,
+          "p50": 118,
+          "p97": 203,
+          "p99": 1107,
+          "max": 1177,
+          "total": 8109,
+          "ok": 8109,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.4,
+          "apiCpu": 108,
+          "apiRssMb": 203,
+          "dbCpu": 1.73,
+          "dbMem": "287.6MiB",
+          "codes": {
+            "200": {
+              "count": 8109
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1017,
+        "kneeAt": 4,
+        "comfortableAt": 64,
+        "comfortableRps": 946,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "list-deep-page-name",
+      "title": "GET /contacts (random deep page via cursor, by name)",
+      "group": "list",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 241,
+          "p50": 3,
+          "p97": 5,
+          "p99": 6,
+          "max": 1061,
+          "total": 2133,
+          "ok": 2133,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.5,
+          "apiCpu": 57.7,
+          "apiRssMb": 201,
+          "dbCpu": 0.27,
+          "dbMem": "287.6MiB",
+          "codes": {
+            "200": {
+              "count": 2133
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 929,
+          "p50": 3,
+          "p97": 5,
+          "p99": 7,
+          "max": 1045,
+          "total": 8216,
+          "ok": 8216,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.5,
+          "apiCpu": 99,
+          "apiRssMb": 198,
+          "dbCpu": 0.23,
+          "dbMem": "276.5MiB",
+          "codes": {
+            "200": {
+              "count": 8216
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 928,
+          "p50": 7,
+          "p97": 11,
+          "p99": 13,
+          "max": 1059,
+          "total": 8209,
+          "ok": 8209,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.5,
+          "apiCpu": 101.7,
+          "apiRssMb": 156,
+          "dbCpu": 0.2,
+          "dbMem": "282.9MiB",
+          "codes": {
+            "200": {
+              "count": 8209
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 920,
+          "p50": 14,
+          "p97": 20,
+          "p99": 25,
+          "max": 1073,
+          "total": 8135,
+          "ok": 8135,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.4,
+          "apiCpu": 100.8,
+          "apiRssMb": 169,
+          "dbCpu": 0.99,
+          "dbMem": "287.7MiB",
+          "codes": {
+            "200": {
+              "count": 8135
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 905,
+          "p50": 30,
+          "p97": 39,
+          "p99": 67,
+          "max": 1086,
+          "total": 8017,
+          "ok": 8017,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.3,
+          "apiCpu": 100.9,
+          "apiRssMb": 182,
+          "dbCpu": 0.26,
+          "dbMem": "288MiB",
+          "codes": {
+            "200": {
+              "count": 8017
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 869,
+          "p50": 60,
+          "p97": 81,
+          "p99": 295,
+          "max": 1356,
+          "total": 7051,
+          "ok": 7051,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.3,
+          "apiCpu": 111.8,
+          "apiRssMb": 181,
+          "dbCpu": 1.01,
+          "dbMem": "295.3MiB",
+          "codes": {
+            "200": {
+              "count": 7051
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 864,
+          "p50": 115,
+          "p97": 227,
+          "p99": 1760,
+          "max": 1820,
+          "total": 7356,
+          "ok": 7356,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.7,
+          "apiCpu": 103.7,
+          "apiRssMb": 202,
+          "dbCpu": 0.16,
+          "dbMem": "287.9MiB",
+          "codes": {
+            "200": {
+              "count": 7356
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 929,
+        "kneeAt": 4,
+        "comfortableAt": 64,
+        "comfortableRps": 869,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "search-name",
+      "title": "GET /contacts?q=<full name> (selective)",
+      "group": "search",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 23,
+          "p50": 32,
+          "p97": 140,
+          "p99": 246,
+          "max": 1075,
+          "total": 204,
+          "ok": 204,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 10.2,
+          "apiRssMb": 173,
+          "dbCpu": 0.26,
+          "dbMem": "288.3MiB",
+          "codes": {
+            "200": {
+              "count": 204
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 80,
+          "p50": 32,
+          "p97": 257,
+          "p99": 322,
+          "max": 1315,
+          "total": 649,
+          "ok": 649,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.9,
+          "apiCpu": 28.8,
+          "apiRssMb": 173,
+          "dbCpu": 0.19,
+          "dbMem": "277MiB",
+          "codes": {
+            "200": {
+              "count": 649
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 122,
+          "p50": 43,
+          "p97": 185,
+          "p99": 464,
+          "max": 2130,
+          "total": 1039,
+          "ok": 1039,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.4,
+          "apiCpu": 33.6,
+          "apiRssMb": 169,
+          "dbCpu": 0.22,
+          "dbMem": "286.9MiB",
+          "codes": {
+            "200": {
+              "count": 1039
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 132,
+          "p50": 93,
+          "p97": 497,
+          "p99": 1140,
+          "max": 1437,
+          "total": 1176,
+          "ok": 1176,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.4,
+          "apiCpu": 32.5,
+          "apiRssMb": 168,
+          "dbCpu": 21.71,
+          "dbMem": "288.9MiB",
+          "codes": {
+            "200": {
+              "count": 1176
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 134,
+          "p50": 195,
+          "p97": 1208,
+          "p99": 1320,
+          "max": 1602,
+          "total": 1203,
+          "ok": 1203,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.4,
+          "apiCpu": 26.8,
+          "apiRssMb": 167,
+          "dbCpu": 14.12,
+          "dbMem": "289.4MiB",
+          "codes": {
+            "200": {
+              "count": 1203
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 126,
+          "p50": 428,
+          "p97": 1435,
+          "p99": 1600,
+          "max": 2093,
+          "total": 1136,
+          "ok": 1136,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.3,
+          "apiCpu": 26.3,
+          "apiRssMb": 159,
+          "dbCpu": 92.22,
+          "dbMem": "290.2MiB",
+          "codes": {
+            "200": {
+              "count": 1136
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 126,
+          "p50": 818,
+          "p97": 2304,
+          "p99": 2352,
+          "max": 2541,
+          "total": 1037,
+          "ok": 1037,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.4,
+          "apiCpu": 22,
+          "apiRssMb": 152,
+          "dbCpu": 47.99,
+          "dbMem": "289.1MiB",
+          "codes": {
+            "200": {
+              "count": 1037
+            }
+          },
+          "break": "p99 latency 2352 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 134,
+        "kneeAt": 16,
+        "comfortableAt": 8,
+        "comfortableRps": 122,
+        "breakAt": {
+          "level": 128,
+          "reason": "p99 latency 2352 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "search-email",
+      "title": "GET /contacts?q=<email prefix> (very selective)",
+      "group": "search",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 40,
+          "p50": 21,
+          "p97": 28,
+          "p99": 30,
+          "max": 1068,
+          "total": 359,
+          "ok": 359,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 10.1,
+          "apiRssMb": 128,
+          "dbCpu": 0.09,
+          "dbMem": "289.5MiB",
+          "codes": {
+            "200": {
+              "count": 359
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 153,
+          "p50": 22,
+          "p97": 33,
+          "p99": 41,
+          "max": 1068,
+          "total": 1353,
+          "ok": 1353,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.1,
+          "apiCpu": 15.6,
+          "apiRssMb": 126,
+          "dbCpu": 0.27,
+          "dbMem": "277.3MiB",
+          "codes": {
+            "200": {
+              "count": 1353
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 215,
+          "p50": 31,
+          "p97": 53,
+          "p99": 68,
+          "max": 1113,
+          "total": 1907,
+          "ok": 1907,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 30.1,
+          "apiRssMb": 116,
+          "dbCpu": 0.24,
+          "dbMem": "286.9MiB",
+          "codes": {
+            "200": {
+              "count": 1907
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 209,
+          "p50": 65,
+          "p97": 103,
+          "p99": 124,
+          "max": 1175,
+          "total": 1863,
+          "ok": 1863,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 28.2,
+          "apiRssMb": 111,
+          "dbCpu": 0.36,
+          "dbMem": "289.2MiB",
+          "codes": {
+            "200": {
+              "count": 1863
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 210,
+          "p50": 130,
+          "p97": 182,
+          "p99": 1217,
+          "max": 1321,
+          "total": 1881,
+          "ok": 1881,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 27.4,
+          "apiRssMb": 103,
+          "dbCpu": 3.08,
+          "dbMem": "289.3MiB",
+          "codes": {
+            "200": {
+              "count": 1881
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 207,
+          "p50": 260,
+          "p97": 1318,
+          "p99": 1422,
+          "max": 1490,
+          "total": 1666,
+          "ok": 1666,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 33.3,
+          "apiRssMb": 104,
+          "dbCpu": 2.97,
+          "dbMem": "289.7MiB",
+          "codes": {
+            "200": {
+              "count": 1666
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 199,
+          "p50": 541,
+          "p97": 1828,
+          "p99": 1877,
+          "max": 1918,
+          "total": 1630,
+          "ok": 1630,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 21.6,
+          "apiRssMb": 103,
+          "dbCpu": 0.06,
+          "dbMem": "289.5MiB",
+          "codes": {
+            "200": {
+              "count": 1630
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 215,
+        "kneeAt": 8,
+        "comfortableAt": 16,
+        "comfortableRps": 209,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "search-phone",
+      "title": "GET /contacts?q=<7 phone digits>",
+      "group": "search",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 50,
+          "p50": 15,
+          "p97": 29,
+          "p99": 60,
+          "max": 1074,
+          "total": 443,
+          "ok": 443,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.1,
+          "apiCpu": 11.8,
+          "apiRssMb": 75,
+          "dbCpu": 0.24,
+          "dbMem": "290MiB",
+          "codes": {
+            "200": {
+              "count": 443
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 226,
+          "p50": 14,
+          "p97": 20,
+          "p99": 23,
+          "max": 1082,
+          "total": 2002,
+          "ok": 2002,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 31.6,
+          "apiRssMb": 100,
+          "dbCpu": 0.15,
+          "dbMem": "277.5MiB",
+          "codes": {
+            "200": {
+              "count": 2002
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 313,
+          "p50": 20,
+          "p97": 35,
+          "p99": 50,
+          "max": 1081,
+          "total": 2771,
+          "ok": 2771,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 32.4,
+          "apiRssMb": 108,
+          "dbCpu": 1.58,
+          "dbMem": "287.2MiB",
+          "codes": {
+            "200": {
+              "count": 2771
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 283,
+          "p50": 46,
+          "p97": 88,
+          "p99": 168,
+          "max": 1145,
+          "total": 2517,
+          "ok": 2517,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 37.9,
+          "apiRssMb": 109,
+          "dbCpu": 0.29,
+          "dbMem": "290MiB",
+          "codes": {
+            "200": {
+              "count": 2517
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 316,
+          "p50": 86,
+          "p97": 123,
+          "p99": 1106,
+          "max": 1200,
+          "total": 2810,
+          "ok": 2810,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 51.7,
+          "apiRssMb": 111,
+          "dbCpu": 2.47,
+          "dbMem": "289.9MiB",
+          "codes": {
+            "200": {
+              "count": 2810
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 310,
+          "p50": 175,
+          "p97": 284,
+          "p99": 1263,
+          "max": 1341,
+          "total": 2777,
+          "ok": 2777,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 44.3,
+          "apiRssMb": 107,
+          "dbCpu": 2.83,
+          "dbMem": "290.2MiB",
+          "codes": {
+            "200": {
+              "count": 2777
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 292,
+          "p50": 346,
+          "p97": 1822,
+          "p99": 1869,
+          "max": 1915,
+          "total": 2420,
+          "ok": 2420,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 35.5,
+          "apiRssMb": 117,
+          "dbCpu": 0.21,
+          "dbMem": "289.9MiB",
+          "codes": {
+            "200": {
+              "count": 2420
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 316,
+        "kneeAt": 8,
+        "comfortableAt": 16,
+        "comfortableRps": 283,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "search-medium",
+      "title": "GET /contacts?q=garc (about 1.5% of rows match)",
+      "group": "search",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 43,
+          "p50": 19,
+          "p97": 25,
+          "p99": 28,
+          "max": 1068,
+          "total": 384,
+          "ok": 384,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 15.6,
+          "apiRssMb": 114,
+          "dbCpu": 2.98,
+          "dbMem": "289.8MiB",
+          "codes": {
+            "200": {
+              "count": 384
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 2,
+          "rps": 84,
+          "p50": 20,
+          "p97": 23,
+          "p99": 27,
+          "max": 1095,
+          "total": 744,
+          "ok": 744,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.9,
+          "apiCpu": 21,
+          "apiRssMb": 104,
+          "dbCpu": 2.42,
+          "dbMem": "272.2MiB",
+          "codes": {
+            "200": {
+              "count": 744
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 147,
+          "p50": 22,
+          "p97": 36,
+          "p99": 59,
+          "max": 1063,
+          "total": 1300,
+          "ok": 1300,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.5,
+          "apiCpu": 29.8,
+          "apiRssMb": 113,
+          "dbCpu": 2.15,
+          "dbMem": "277.3MiB",
+          "codes": {
+            "200": {
+              "count": 1300
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 235,
+          "p50": 28,
+          "p97": 45,
+          "p99": 55,
+          "max": 1098,
+          "total": 2091,
+          "ok": 2091,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.4,
+          "apiCpu": 43.6,
+          "apiRssMb": 103,
+          "dbCpu": 0.25,
+          "dbMem": "286.9MiB",
+          "codes": {
+            "200": {
+              "count": 2091
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 242,
+          "p50": 56,
+          "p97": 82,
+          "p99": 98,
+          "max": 1176,
+          "total": 2159,
+          "ok": 2159,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.5,
+          "apiCpu": 40.9,
+          "apiRssMb": 102,
+          "dbCpu": 0.16,
+          "dbMem": "289.5MiB",
+          "codes": {
+            "200": {
+              "count": 2159
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 221,
+          "p50": 114,
+          "p97": 154,
+          "p99": 1786,
+          "max": 1852,
+          "total": 1881,
+          "ok": 1881,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.5,
+          "apiCpu": 51.1,
+          "apiRssMb": 99,
+          "dbCpu": 0.17,
+          "dbMem": "289.5MiB",
+          "codes": {
+            "200": {
+              "count": 1881
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 222,
+          "p50": 226,
+          "p97": 1928,
+          "p99": 2022,
+          "max": 2093,
+          "total": 1923,
+          "ok": 1923,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.6,
+          "apiCpu": 39.7,
+          "apiRssMb": 126,
+          "dbCpu": 0.21,
+          "dbMem": "289.9MiB",
+          "codes": {
+            "200": {
+              "count": 1923
+            }
+          },
+          "break": "p99 latency 2022 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 242,
+        "kneeAt": 8,
+        "comfortableAt": 16,
+        "comfortableRps": 242,
+        "breakAt": {
+          "level": 64,
+          "reason": "p99 latency 2022 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "search-broad",
+      "title": "GET /contacts?q=an (worst case: about a quarter of all rows match)",
+      "group": "search",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 66,
+          "p50": 13,
+          "p97": 14,
+          "p99": 16,
+          "max": 1080,
+          "total": 588,
+          "ok": 588,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 18.8,
+          "apiRssMb": 127,
+          "dbCpu": 1.45,
+          "dbMem": "289.1MiB",
+          "codes": {
+            "200": {
+              "count": 588
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 2,
+          "rps": 115,
+          "p50": 13,
+          "p97": 18,
+          "p99": 22,
+          "max": 1581,
+          "total": 966,
+          "ok": 966,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.1,
+          "apiCpu": 24.4,
+          "apiRssMb": 112,
+          "dbCpu": 0.26,
+          "dbMem": "271.6MiB",
+          "codes": {
+            "200": {
+              "count": 966
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 211,
+          "p50": 14,
+          "p97": 18,
+          "p99": 24,
+          "max": 1700,
+          "total": 1792,
+          "ok": 1792,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2,
+          "apiCpu": 26,
+          "apiRssMb": 119,
+          "dbCpu": 0.33,
+          "dbMem": "276.2MiB",
+          "codes": {
+            "200": {
+              "count": 1792
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 415,
+          "p50": 16,
+          "p97": 24,
+          "p99": 30,
+          "max": 1071,
+          "total": 3680,
+          "ok": 3680,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 3.6,
+          "apiCpu": 52.6,
+          "apiRssMb": 137,
+          "dbCpu": 1.04,
+          "dbMem": "285.8MiB",
+          "codes": {
+            "200": {
+              "count": 3680
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 388,
+          "p50": 34,
+          "p97": 56,
+          "p99": 85,
+          "max": 1134,
+          "total": 3450,
+          "ok": 3450,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 3.3,
+          "apiCpu": 59.9,
+          "apiRssMb": 120,
+          "dbCpu": 0.45,
+          "dbMem": "288.4MiB",
+          "codes": {
+            "200": {
+              "count": 3450
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 383,
+          "p50": 69,
+          "p97": 137,
+          "p99": 232,
+          "max": 1176,
+          "total": 3409,
+          "ok": 3409,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 3.3,
+          "apiCpu": 55.4,
+          "apiRssMb": 139,
+          "dbCpu": 0.32,
+          "dbMem": "287.8MiB",
+          "codes": {
+            "200": {
+              "count": 3409
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 406,
+          "p50": 136,
+          "p97": 176,
+          "p99": 1211,
+          "max": 1290,
+          "total": 3634,
+          "ok": 3634,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 3.5,
+          "apiCpu": 64.9,
+          "apiRssMb": 178,
+          "dbCpu": 0.21,
+          "dbMem": "288.2MiB",
+          "codes": {
+            "200": {
+              "count": 3634
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 415,
+        "kneeAt": 8,
+        "comfortableAt": 32,
+        "comfortableRps": 383,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "filter-tag-rare",
+      "title": "GET /contacts?tags=VIP (3% of rows)",
+      "group": "filter",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 8,
+          "p50": 93,
+          "p97": 135,
+          "p99": 2116,
+          "max": 2116,
+          "total": 71,
+          "ok": 71,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.1,
+          "apiCpu": 3.4,
+          "apiRssMb": 163,
+          "dbCpu": 5.92,
+          "dbMem": "278.2MiB",
+          "codes": {
+            "200": {
+              "count": 71
+            }
+          },
+          "break": "p99 latency 2116 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 8,
+        "kneeAt": 1,
+        "comfortableAt": null,
+        "comfortableRps": null,
+        "breakAt": {
+          "level": 1,
+          "reason": "p99 latency 2116 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "filter-tag-common",
+      "title": "GET /contacts?tags=Customer (30% of rows)",
+      "group": "filter",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 8,
+          "p50": 108,
+          "p97": 195,
+          "p99": 1178,
+          "max": 1178,
+          "total": 71,
+          "ok": 71,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.1,
+          "apiCpu": 3.3,
+          "apiRssMb": 144,
+          "dbCpu": 0.12,
+          "dbMem": "281.5MiB",
+          "codes": {
+            "200": {
+              "count": 71
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 18,
+          "p50": 176,
+          "p97": 1783,
+          "p99": 1784,
+          "max": 1872,
+          "total": 154,
+          "ok": 154,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 5.4,
+          "apiRssMb": 121,
+          "dbCpu": 0.23,
+          "dbMem": "278.4MiB",
+          "codes": {
+            "200": {
+              "count": 154
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 19,
+          "p50": 317,
+          "p97": 1922,
+          "p99": 2087,
+          "max": 2190,
+          "total": 166,
+          "ok": 166,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 5,
+          "apiRssMb": 112,
+          "dbCpu": 1.01,
+          "dbMem": "288.9MiB",
+          "codes": {
+            "200": {
+              "count": 166
+            }
+          },
+          "break": "p99 latency 2087 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 19,
+        "kneeAt": 8,
+        "comfortableAt": null,
+        "comfortableRps": null,
+        "breakAt": {
+          "level": 8,
+          "reason": "p99 latency 2087 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "filter-company",
+      "title": "GET /contacts?company=acme",
+      "group": "filter",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 50,
+          "p50": 17,
+          "p97": 20,
+          "p99": 22,
+          "max": 1069,
+          "total": 446,
+          "ok": 446,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 15.6,
+          "apiRssMb": 99,
+          "dbCpu": 0.05,
+          "dbMem": "291.4MiB",
+          "codes": {
+            "200": {
+              "count": 446
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 2,
+          "rps": 86,
+          "p50": 18,
+          "p97": 22,
+          "p99": 28,
+          "max": 1666,
+          "total": 732,
+          "ok": 732,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1,
+          "apiCpu": 20.1,
+          "apiRssMb": 108,
+          "dbCpu": 0.22,
+          "dbMem": "273.7MiB",
+          "codes": {
+            "200": {
+              "count": 732
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 146,
+          "p50": 20,
+          "p97": 31,
+          "p99": 49,
+          "max": 1725,
+          "total": 1243,
+          "ok": 1243,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.6,
+          "apiCpu": 27.1,
+          "apiRssMb": 127,
+          "dbCpu": 0.15,
+          "dbMem": "278.3MiB",
+          "codes": {
+            "200": {
+              "count": 1243
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 227,
+          "p50": 29,
+          "p97": 53,
+          "p99": 81,
+          "max": 1089,
+          "total": 2013,
+          "ok": 2013,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.3,
+          "apiCpu": 39.2,
+          "apiRssMb": 125,
+          "dbCpu": 0.16,
+          "dbMem": "287.6MiB",
+          "codes": {
+            "200": {
+              "count": 2013
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 250,
+          "p50": 55,
+          "p97": 83,
+          "p99": 93,
+          "max": 1161,
+          "total": 2230,
+          "ok": 2230,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.5,
+          "apiCpu": 40.1,
+          "apiRssMb": 103,
+          "dbCpu": 0.93,
+          "dbMem": "289.9MiB",
+          "codes": {
+            "200": {
+              "count": 2230
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 239,
+          "p50": 110,
+          "p97": 191,
+          "p99": 1197,
+          "max": 1285,
+          "total": 2148,
+          "ok": 2148,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.4,
+          "apiCpu": 41,
+          "apiRssMb": 99,
+          "dbCpu": 0.12,
+          "dbMem": "289.9MiB",
+          "codes": {
+            "200": {
+              "count": 2148
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 235,
+          "p50": 222,
+          "p97": 1280,
+          "p99": 1348,
+          "max": 1420,
+          "total": 1886,
+          "ok": 1886,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.4,
+          "apiCpu": 42.6,
+          "apiRssMb": 114,
+          "dbCpu": 0.11,
+          "dbMem": "290.2MiB",
+          "codes": {
+            "200": {
+              "count": 1886
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 250,
+        "kneeAt": 16,
+        "comfortableAt": 16,
+        "comfortableRps": 250,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "filter-combined",
+      "title": "GET /contacts?q=garc&tags=Lead&company=group",
+      "group": "filter",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 24,
+          "p50": 36,
+          "p97": 49,
+          "p99": 55,
+          "max": 1096,
+          "total": 209,
+          "ok": 209,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 2.8,
+          "apiRssMb": 127,
+          "dbCpu": 0.07,
+          "dbMem": "291MiB",
+          "codes": {
+            "200": {
+              "count": 209
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 2,
+          "rps": 43,
+          "p50": 37,
+          "p97": 68,
+          "p99": 80,
+          "max": 1121,
+          "total": 386,
+          "ok": 386,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 4.9,
+          "apiRssMb": 113,
+          "dbCpu": 0.14,
+          "dbMem": "273.2MiB",
+          "codes": {
+            "200": {
+              "count": 386
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 78,
+          "p50": 43,
+          "p97": 68,
+          "p99": 75,
+          "max": 1100,
+          "total": 690,
+          "ok": 690,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.9,
+          "apiCpu": 15.9,
+          "apiRssMb": 107,
+          "dbCpu": 0.32,
+          "dbMem": "279.4MiB",
+          "codes": {
+            "200": {
+              "count": 690
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 95,
+          "p50": 69,
+          "p97": 183,
+          "p99": 228,
+          "max": 1130,
+          "total": 840,
+          "ok": 840,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.1,
+          "apiCpu": 22.2,
+          "apiRssMb": 91,
+          "dbCpu": 0.2,
+          "dbMem": "288.5MiB",
+          "codes": {
+            "200": {
+              "count": 840
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 78,
+          "p50": 163,
+          "p97": 390,
+          "p99": 1194,
+          "max": 1247,
+          "total": 696,
+          "ok": 696,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.9,
+          "apiCpu": 18.5,
+          "apiRssMb": 79,
+          "dbCpu": 0.21,
+          "dbMem": "292.2MiB",
+          "codes": {
+            "200": {
+              "count": 696
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 98,
+          "p50": 277,
+          "p97": 1244,
+          "p99": 1383,
+          "max": 1459,
+          "total": 882,
+          "ok": 882,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.1,
+          "apiCpu": 20.4,
+          "apiRssMb": 91,
+          "dbCpu": 23.37,
+          "dbMem": "292.4MiB",
+          "codes": {
+            "200": {
+              "count": 882
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 90,
+          "p50": 596,
+          "p97": 1671,
+          "p99": 1730,
+          "max": 1798,
+          "total": 808,
+          "ok": 808,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1,
+          "apiCpu": 18.7,
+          "apiRssMb": 120,
+          "dbCpu": 108.33,
+          "dbMem": "299.5MiB",
+          "codes": {
+            "200": {
+              "count": 808
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 98,
+        "kneeAt": 8,
+        "comfortableAt": 8,
+        "comfortableRps": 95,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "filter-date-range",
+      "title": "GET /contacts?createdFrom&createdTo (one month)",
+      "group": "filter",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 202,
+          "p50": 4,
+          "p97": 5,
+          "p99": 6,
+          "max": 1069,
+          "total": 1793,
+          "ok": 1793,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.1,
+          "apiCpu": 44,
+          "apiRssMb": 136,
+          "dbCpu": 3.37,
+          "dbMem": "292.9MiB",
+          "codes": {
+            "200": {
+              "count": 1793
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 886,
+          "p50": 3,
+          "p97": 6,
+          "p99": 7,
+          "max": 1054,
+          "total": 7842,
+          "ok": 7842,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.3,
+          "apiCpu": 58.9,
+          "apiRssMb": 155,
+          "dbCpu": 4.65,
+          "dbMem": "278.3MiB",
+          "codes": {
+            "200": {
+              "count": 7842
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1184,
+          "p50": 5,
+          "p97": 8,
+          "p99": 10,
+          "max": 1059,
+          "total": 10491,
+          "ok": 10491,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 12.4,
+          "apiCpu": 99.6,
+          "apiRssMb": 160,
+          "dbCpu": 2.53,
+          "dbMem": "286.7MiB",
+          "codes": {
+            "200": {
+              "count": 10491
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 1069,
+          "p50": 12,
+          "p97": 20,
+          "p99": 28,
+          "max": 1064,
+          "total": 9462,
+          "ok": 9462,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 11.2,
+          "apiCpu": 98.2,
+          "apiRssMb": 175,
+          "dbCpu": 1.46,
+          "dbMem": "289.7MiB",
+          "codes": {
+            "200": {
+              "count": 9462
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 936,
+          "p50": 29,
+          "p97": 37,
+          "p99": 47,
+          "max": 1088,
+          "total": 8295,
+          "ok": 8295,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 9.8,
+          "apiCpu": 102.6,
+          "apiRssMb": 203,
+          "dbCpu": 0.15,
+          "dbMem": "289.6MiB",
+          "codes": {
+            "200": {
+              "count": 8295
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 830,
+          "p50": 66,
+          "p97": 80,
+          "p99": 195,
+          "max": 1137,
+          "total": 7373,
+          "ok": 7373,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 8.7,
+          "apiCpu": 108.7,
+          "apiRssMb": 174,
+          "dbCpu": 0.18,
+          "dbMem": "290.2MiB",
+          "codes": {
+            "200": {
+              "count": 7373
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 734,
+          "p50": 140,
+          "p97": 344,
+          "p99": 1154,
+          "max": 1215,
+          "total": 6533,
+          "ok": 6533,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 7.7,
+          "apiCpu": 97.6,
+          "apiRssMb": 201,
+          "dbCpu": 0.15,
+          "dbMem": "289.5MiB",
+          "codes": {
+            "200": {
+              "count": 6533
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1184,
+        "kneeAt": 8,
+        "comfortableAt": 64,
+        "comfortableRps": 830,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "attention-untagged",
+      "title": "GET /contacts?attention=untagged (36% of rows)",
+      "group": "filter",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 14,
+          "p50": 53,
+          "p97": 137,
+          "p99": 172,
+          "max": 1070,
+          "total": 125,
+          "ok": 125,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.1,
+          "apiCpu": 4.6,
+          "apiRssMb": 90,
+          "dbCpu": 0.43,
+          "dbMem": "289.5MiB",
+          "codes": {
+            "200": {
+              "count": 125
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 37,
+          "p50": 92,
+          "p97": 134,
+          "p99": 1107,
+          "max": 1108,
+          "total": 328,
+          "ok": 328,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 11.3,
+          "apiRssMb": 87,
+          "dbCpu": 0.48,
+          "dbMem": "277.8MiB",
+          "codes": {
+            "200": {
+              "count": 328
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 60,
+          "p50": 116,
+          "p97": 150,
+          "p99": 1063,
+          "max": 1178,
+          "total": 533,
+          "ok": 533,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 13.4,
+          "apiRssMb": 106,
+          "dbCpu": 17.29,
+          "dbMem": "286.2MiB",
+          "codes": {
+            "200": {
+              "count": 533
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 87,
+          "p50": 187,
+          "p97": 278,
+          "p99": 1108,
+          "max": 1196,
+          "total": 776,
+          "ok": 776,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.8,
+          "apiCpu": 14.2,
+          "apiRssMb": 113,
+          "dbCpu": 35.91,
+          "dbMem": "288.7MiB",
+          "codes": {
+            "200": {
+              "count": 776
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 93,
+          "p50": 291,
+          "p97": 1160,
+          "p99": 1258,
+          "max": 1447,
+          "total": 828,
+          "ok": 828,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.8,
+          "apiCpu": 12.8,
+          "apiRssMb": 115,
+          "dbCpu": 120.44,
+          "dbMem": "295MiB",
+          "codes": {
+            "200": {
+              "count": 828
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 93,
+          "p50": 626,
+          "p97": 1539,
+          "p99": 1647,
+          "max": 1749,
+          "total": 824,
+          "ok": 824,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.8,
+          "apiCpu": 12.5,
+          "apiRssMb": 109,
+          "dbCpu": 287.99,
+          "dbMem": "288.6MiB",
+          "codes": {
+            "200": {
+              "count": 824
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 84,
+          "p50": 1494,
+          "p97": 2720,
+          "p99": 2847,
+          "max": 2849,
+          "total": 692,
+          "ok": 692,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.8,
+          "apiCpu": 6.8,
+          "apiRssMb": 96,
+          "dbCpu": 441.13,
+          "dbMem": "288.3MiB",
+          "codes": {
+            "200": {
+              "count": 692
+            }
+          },
+          "break": "p99 latency 2847 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 93,
+        "kneeAt": 32,
+        "comfortableAt": 1,
+        "comfortableRps": 14,
+        "breakAt": {
+          "level": 128,
+          "reason": "p99 latency 2847 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "attention-stale",
+      "title": "GET /contacts?attention=stale",
+      "group": "filter",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 4,
+          "p50": 220,
+          "p97": 1168,
+          "p99": 1168,
+          "max": 1168,
+          "total": 33,
+          "ok": 33,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.8,
+          "apiRssMb": 76,
+          "dbCpu": 8.42,
+          "dbMem": "288.8MiB",
+          "codes": {
+            "200": {
+              "count": 33
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 9,
+          "p50": 403,
+          "p97": 1134,
+          "p99": 1134,
+          "max": 1134,
+          "total": 80,
+          "ok": 80,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.1,
+          "apiCpu": 1.8,
+          "apiRssMb": 58,
+          "dbCpu": 64.05,
+          "dbMem": "276.9MiB",
+          "codes": {
+            "200": {
+              "count": 80
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 15,
+          "p50": 447,
+          "p97": 1538,
+          "p99": 1539,
+          "max": 1540,
+          "total": 120,
+          "ok": 120,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 4.1,
+          "apiRssMb": 65,
+          "dbCpu": 2.9,
+          "dbMem": "285.4MiB",
+          "codes": {
+            "200": {
+              "count": 120
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 20,
+          "p50": 771,
+          "p97": 2306,
+          "p99": 2309,
+          "max": 2309,
+          "total": 166,
+          "ok": 166,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 3.1,
+          "apiRssMb": 75,
+          "dbCpu": 3.01,
+          "dbMem": "288MiB",
+          "codes": {
+            "200": {
+              "count": 166
+            }
+          },
+          "break": "p99 latency 2309 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 20,
+        "kneeAt": 16,
+        "comfortableAt": null,
+        "comfortableRps": null,
+        "breakAt": {
+          "level": 16,
+          "reason": "p99 latency 2309 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "attention-no-contact",
+      "title": "GET /contacts?attention=no_contact_info (1% of rows)",
+      "group": "filter",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 18,
+          "p50": 45,
+          "p97": 80,
+          "p99": 107,
+          "max": 1090,
+          "total": 162,
+          "ok": 162,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 4.8,
+          "apiRssMb": 72,
+          "dbCpu": 0.33,
+          "dbMem": "288.7MiB",
+          "codes": {
+            "200": {
+              "count": 162
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 2,
+          "rps": 31,
+          "p50": 54,
+          "p97": 91,
+          "p99": 114,
+          "max": 1177,
+          "total": 275,
+          "ok": 275,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 18.6,
+          "apiRssMb": 83,
+          "dbCpu": 0.17,
+          "dbMem": "272.4MiB",
+          "codes": {
+            "200": {
+              "count": 275
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 37,
+          "p50": 86,
+          "p97": 139,
+          "p99": 1481,
+          "max": 1548,
+          "total": 302,
+          "ok": 302,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 8.7,
+          "apiRssMb": 90,
+          "dbCpu": 0.31,
+          "dbMem": "277.6MiB",
+          "codes": {
+            "200": {
+              "count": 302
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 33,
+          "p50": 158,
+          "p97": 1738,
+          "p99": 1948,
+          "max": 2026,
+          "total": 283,
+          "ok": 283,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 8.2,
+          "apiRssMb": 73,
+          "dbCpu": 0.71,
+          "dbMem": "286.5MiB",
+          "codes": {
+            "200": {
+              "count": 283
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 40,
+          "p50": 321,
+          "p97": 1425,
+          "p99": 1533,
+          "max": 1713,
+          "total": 321,
+          "ok": 321,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 10.4,
+          "apiRssMb": 86,
+          "dbCpu": 6.54,
+          "dbMem": "289.7MiB",
+          "codes": {
+            "200": {
+              "count": 321
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 41,
+          "p50": 683,
+          "p97": 1780,
+          "p99": 1884,
+          "max": 1941,
+          "total": 328,
+          "ok": 328,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 8.7,
+          "apiRssMb": 87,
+          "dbCpu": 256.64,
+          "dbMem": "290.2MiB",
+          "codes": {
+            "200": {
+              "count": 328
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 44,
+          "p50": 1377,
+          "p97": 2332,
+          "p99": 2433,
+          "max": 2679,
+          "total": 395,
+          "ok": 395,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 7.3,
+          "apiRssMb": 90,
+          "dbCpu": 766.92,
+          "dbMem": "303.8MiB",
+          "codes": {
+            "200": {
+              "count": 395
+            }
+          },
+          "break": "p99 latency 2433 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 44,
+        "kneeAt": 64,
+        "comfortableAt": 2,
+        "comfortableRps": 31,
+        "breakAt": {
+          "level": 64,
+          "reason": "p99 latency 2433 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "attention-duplicate-phone",
+      "title": "GET /contacts?attention=duplicate_phone (groups every phone number)",
+      "group": "filter",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 1,
+          "p50": 1383,
+          "p97": 1832,
+          "p99": 1832,
+          "max": 1832,
+          "total": 6,
+          "ok": 6,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.1,
+          "apiRssMb": 81,
+          "dbCpu": 50.65,
+          "dbMem": "290.4MiB",
+          "codes": {
+            "200": {
+              "count": 6
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 2,
+          "rps": 1,
+          "p50": 1682,
+          "p97": 2619,
+          "p99": 2619,
+          "max": 2619,
+          "total": 8,
+          "ok": 8,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.2,
+          "apiRssMb": 43,
+          "dbCpu": 2.84,
+          "dbMem": "275.6MiB",
+          "codes": {
+            "200": {
+              "count": 8
+            }
+          },
+          "break": "p99 latency 2619 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 1,
+        "kneeAt": 1,
+        "comfortableAt": null,
+        "comfortableRps": null,
+        "breakAt": {
+          "level": 2,
+          "reason": "p99 latency 2619 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "trash-list",
+      "title": "GET /contacts?status=deleted",
+      "group": "filter",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 498,
+          "p50": 1,
+          "p97": 3,
+          "p99": 4,
+          "max": 1090,
+          "total": 4425,
+          "ok": 4425,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.8,
+          "apiCpu": 41.1,
+          "apiRssMb": 126,
+          "dbCpu": 2.51,
+          "dbMem": "287.1MiB",
+          "codes": {
+            "200": {
+              "count": 4425
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1560,
+          "p50": 4,
+          "p97": 7,
+          "p99": 9,
+          "max": 1101,
+          "total": 13869,
+          "ok": 13869,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 8.7,
+          "apiCpu": 88.9,
+          "apiRssMb": 177,
+          "dbCpu": 2.17,
+          "dbMem": "284MiB",
+          "codes": {
+            "200": {
+              "count": 13869
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 1159,
+          "p50": 23,
+          "p97": 37,
+          "p99": 50,
+          "max": 1093,
+          "total": 10276,
+          "ok": 10276,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 6.5,
+          "apiCpu": 94.4,
+          "apiRssMb": 190,
+          "dbCpu": 3.17,
+          "dbMem": "287MiB",
+          "codes": {
+            "200": {
+              "count": 10276
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 943,
+          "p50": 57,
+          "p97": 107,
+          "p99": 147,
+          "max": 1130,
+          "total": 8377,
+          "ok": 8377,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 5.3,
+          "apiCpu": 94.9,
+          "apiRssMb": 201,
+          "dbCpu": 0.19,
+          "dbMem": "286.7MiB",
+          "codes": {
+            "200": {
+              "count": 8377
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 903,
+          "p50": 117,
+          "p97": 254,
+          "p99": 1138,
+          "max": 1221,
+          "total": 8040,
+          "ok": 8040,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 5.1,
+          "apiCpu": 96.1,
+          "apiRssMb": 161,
+          "dbCpu": 0.07,
+          "dbMem": "286.6MiB",
+          "codes": {
+            "200": {
+              "count": 8040
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 256,
+          "rps": 788,
+          "p50": 269,
+          "p97": 1160,
+          "p99": 1258,
+          "max": 1320,
+          "total": 6999,
+          "ok": 6999,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 4.4,
+          "apiCpu": 102.3,
+          "apiRssMb": 199,
+          "dbCpu": 1.86,
+          "dbMem": "286.7MiB",
+          "codes": {
+            "200": {
+              "count": 6999
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1560,
+        "kneeAt": 8,
+        "comfortableAt": 64,
+        "comfortableRps": 943,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "metrics-cached",
+      "title": "GET /metrics (30 s cache, the normal case)",
+      "group": "aggregate",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 1227,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 6658,
+          "total": 10945,
+          "ok": 10945,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 3.8,
+          "apiCpu": 0,
+          "apiRssMb": 113,
+          "dbCpu": 668.53,
+          "dbMem": "438.6MiB",
+          "codes": {
+            "200": {
+              "count": 10945
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 2325,
+          "p50": 2,
+          "p97": 6,
+          "p99": 8,
+          "max": 1065,
+          "total": 20598,
+          "ok": 20598,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 7.1,
+          "apiCpu": 104.8,
+          "apiRssMb": 183,
+          "dbCpu": 11,
+          "dbMem": "375.1MiB",
+          "codes": {
+            "200": {
+              "count": 20598
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 1460,
+          "p50": 18,
+          "p97": 33,
+          "p99": 40,
+          "max": 1091,
+          "total": 12936,
+          "ok": 12936,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 4.5,
+          "apiCpu": 109.8,
+          "apiRssMb": 178,
+          "dbCpu": 0.32,
+          "dbMem": "285.9MiB",
+          "codes": {
+            "200": {
+              "count": 12936
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 1145,
+          "p50": 44,
+          "p97": 60,
+          "p99": 112,
+          "max": 1133,
+          "total": 10157,
+          "ok": 10157,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 3.5,
+          "apiCpu": 105,
+          "apiRssMb": 143,
+          "dbCpu": 0.21,
+          "dbMem": "285.8MiB",
+          "codes": {
+            "200": {
+              "count": 10157
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0,
+          "apiRssMb": 125,
+          "dbCpu": 740.96,
+          "dbMem": "470.9MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 256,
+          "rps": 646,
+          "p50": 126,
+          "p97": 6309,
+          "p99": 6314,
+          "max": 6596,
+          "total": 5384,
+          "ok": 5384,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 2.1,
+          "apiCpu": 98.7,
+          "apiRssMb": 129,
+          "dbCpu": 747.59,
+          "dbMem": "517MiB",
+          "codes": {
+            "200": {
+              "count": 5384
+            }
+          },
+          "break": "p99 latency 6314 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 2325,
+        "kneeAt": 8,
+        "comfortableAt": 128,
+        "comfortableRps": 0,
+        "breakAt": {
+          "level": 256,
+          "reason": "p99 latency 6314 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "metrics-uncached",
+      "title": "GET /metrics (cache off: every request recomputes everything)",
+      "group": "aggregate",
+      "target": "nocache",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 0,
+          "p50": 8211,
+          "p97": 8211,
+          "p99": 8211,
+          "max": 8211,
+          "total": 1,
+          "ok": 1,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0,
+          "apiRssMb": 39,
+          "dbCpu": 769.06,
+          "dbMem": "596MiB",
+          "codes": {
+            "200": {
+              "count": 1
+            }
+          },
+          "break": "p99 latency 8211 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 0,
+        "kneeAt": 1,
+        "comfortableAt": null,
+        "comfortableRps": null,
+        "breakAt": {
+          "level": 1,
+          "reason": "p99 latency 8211 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "export-csv",
+      "title": "GET /contacts/export.csv (streams 50,000 rows)",
+      "group": "aggregate",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.4,
+          "apiRssMb": 109,
+          "dbCpu": 746.14,
+          "dbMem": "611.2MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 2,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.3,
+          "apiRssMb": 45,
+          "dbCpu": 750.1,
+          "dbMem": "523.1MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.3,
+          "apiRssMb": 55,
+          "dbCpu": 755.84,
+          "dbMem": "524MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.4,
+          "apiRssMb": 57,
+          "dbCpu": 784.25,
+          "dbMem": "529.5MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.1,
+          "apiRssMb": 46,
+          "dbCpu": 775.24,
+          "dbMem": "522.8MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.5,
+          "apiRssMb": 45,
+          "dbCpu": 742.26,
+          "dbMem": "521.1MiB",
+          "codes": {},
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 0,
+        "kneeAt": 1,
+        "comfortableAt": 32,
+        "comfortableRps": 0,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "create-contact",
+      "title": "POST /contacts (create one)",
+      "group": "write",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.1,
+          "apiRssMb": 43,
+          "dbCpu": 756.84,
+          "dbMem": "521.6MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0,
+          "apiRssMb": 45,
+          "dbCpu": 759.62,
+          "dbMem": "510.4MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.1,
+          "apiRssMb": 43,
+          "dbCpu": 751.35,
+          "dbMem": "528MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.5,
+          "apiRssMb": 49,
+          "dbCpu": 754.23,
+          "dbMem": "528.9MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.2,
+          "apiRssMb": 49,
+          "dbCpu": 763.13,
+          "dbMem": "525.5MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.3,
+          "apiRssMb": 52,
+          "dbCpu": 759.8,
+          "dbMem": "524.6MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.3,
+          "apiRssMb": 67,
+          "dbCpu": 752.59,
+          "dbMem": "516.9MiB",
+          "codes": {},
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 0,
+        "kneeAt": 1,
+        "comfortableAt": 128,
+        "comfortableRps": 0,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "update-contact",
+      "title": "PATCH /contacts/:id (different contacts)",
+      "group": "write",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.3,
+          "apiRssMb": 63,
+          "dbCpu": 775.2,
+          "dbMem": "527.5MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0,
+          "apiRssMb": 43,
+          "dbCpu": 748.68,
+          "dbMem": "531.1MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0,
+          "apiRssMb": 45,
+          "dbCpu": 783.23,
+          "dbMem": "552.8MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0.2,
+          "apiRssMb": 43,
+          "dbCpu": 752.04,
+          "dbMem": "527.7MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "total": 0,
+          "ok": 0,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 0,
+          "apiRssMb": 40,
+          "dbCpu": 757.71,
+          "dbMem": "534.8MiB",
+          "codes": {},
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 52,
+          "p50": 370,
+          "p97": 6044,
+          "p99": 6045,
+          "max": 6046,
+          "total": 418,
+          "ok": 418,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 115.7,
+          "apiRssMb": 133,
+          "dbCpu": 608.35,
+          "dbMem": "496.3MiB",
+          "codes": {
+            "200": {
+              "count": 418
+            }
+          },
+          "break": "p99 latency 6045 ms exceeds 2000 ms"
+        }
+      ],
+      "summary": {
+        "maxRps": 52,
+        "kneeAt": 64,
+        "comfortableAt": 32,
+        "comfortableRps": 0,
+        "breakAt": {
+          "level": 64,
+          "reason": "p99 latency 6045 ms exceeds 2000 ms"
+        }
+      }
+    },
+    {
+      "name": "update-same-contact",
+      "title": "PATCH /contacts/:id (everyone edits the SAME contact: conflicts)",
+      "group": "write",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 2,
+          "p50": 467,
+          "p97": 1310,
+          "p99": 1310,
+          "max": 1310,
+          "total": 17,
+          "ok": 0,
+          "s4xx": 17,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 109.2,
+          "apiRssMb": 351,
+          "dbCpu": 43.02,
+          "dbMem": "496.4MiB",
+          "codes": {
+            "409": {
+              "count": 17
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 7,
+          "p50": 484,
+          "p97": 1326,
+          "p99": 1395,
+          "max": 1395,
+          "total": 64,
+          "ok": 0,
+          "s4xx": 64,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 112,
+          "apiRssMb": 336,
+          "dbCpu": 57.54,
+          "dbMem": "496.7MiB",
+          "codes": {
+            "409": {
+              "count": 64
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 630,
+          "p50": 4,
+          "p97": 11,
+          "p99": 574,
+          "max": 1083,
+          "total": 5573,
+          "ok": 0,
+          "s4xx": 5573,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 90.2,
+          "apiRssMb": 418,
+          "dbCpu": 2.85,
+          "dbMem": "496.3MiB",
+          "codes": {
+            "409": {
+              "count": 5573
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 1338,
+          "p50": 10,
+          "p97": 16,
+          "p99": 19,
+          "max": 1604,
+          "total": 11222,
+          "ok": 0,
+          "s4xx": 11222,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.5,
+          "apiCpu": 73.7,
+          "apiRssMb": 221,
+          "dbCpu": 0.89,
+          "dbMem": "496.7MiB",
+          "codes": {
+            "409": {
+              "count": 11222
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 965,
+          "p50": 25,
+          "p97": 50,
+          "p99": 75,
+          "max": 1712,
+          "total": 8183,
+          "ok": 0,
+          "s4xx": 8183,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1.1,
+          "apiCpu": 82.8,
+          "apiRssMb": 156,
+          "dbCpu": 2.46,
+          "dbMem": "496.2MiB",
+          "codes": {
+            "409": {
+              "count": 8183
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 953,
+          "p50": 57,
+          "p97": 88,
+          "p99": 114,
+          "max": 1099,
+          "total": 8426,
+          "ok": 0,
+          "s4xx": 8426,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1,
+          "apiCpu": 86.2,
+          "apiRssMb": 152,
+          "dbCpu": 4.7,
+          "dbMem": "496.2MiB",
+          "codes": {
+            "409": {
+              "count": 8426
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 816,
+          "p50": 135,
+          "p97": 236,
+          "p99": 1106,
+          "max": 1176,
+          "total": 7218,
+          "ok": 0,
+          "s4xx": 7218,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.8,
+          "apiCpu": 82.9,
+          "apiRssMb": 168,
+          "dbCpu": 6.22,
+          "dbMem": "496.4MiB",
+          "codes": {
+            "409": {
+              "count": 7218
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1338,
+        "kneeAt": 16,
+        "comfortableAt": 64,
+        "comfortableRps": 953,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "tag-add-single",
+      "title": "POST /contacts/:id/tags (1 tag)",
+      "group": "write",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 386,
+          "p50": 1,
+          "p97": 3,
+          "p99": 5,
+          "max": 1989,
+          "total": 3390,
+          "ok": 3390,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 31,
+          "apiRssMb": 151,
+          "dbCpu": 30.05,
+          "dbMem": "381.2MiB",
+          "codes": {
+            "201": {
+              "count": 3390
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 913,
+          "p50": 3,
+          "p97": 8,
+          "p99": 11,
+          "max": 1719,
+          "total": 7775,
+          "ok": 7775,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 62.9,
+          "apiRssMb": 112,
+          "dbCpu": 1.85,
+          "dbMem": "381.4MiB",
+          "codes": {
+            "201": {
+              "count": 7775
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1034,
+          "p50": 6,
+          "p97": 12,
+          "p99": 16,
+          "max": 1053,
+          "total": 9149,
+          "ok": 9149,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.7,
+          "apiCpu": 64.1,
+          "apiRssMb": 146,
+          "dbCpu": 2.37,
+          "dbMem": "391.5MiB",
+          "codes": {
+            "201": {
+              "count": 9149
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 926,
+          "p50": 14,
+          "p97": 29,
+          "p99": 50,
+          "max": 1075,
+          "total": 8200,
+          "ok": 8200,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 56.7,
+          "apiRssMb": 134,
+          "dbCpu": 4.34,
+          "dbMem": "393.9MiB",
+          "codes": {
+            "201": {
+              "count": 8200
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 763,
+          "p50": 32,
+          "p97": 88,
+          "p99": 184,
+          "max": 1084,
+          "total": 6749,
+          "ok": 6749,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 86.6,
+          "apiRssMb": 161,
+          "dbCpu": 1.39,
+          "dbMem": "394MiB",
+          "codes": {
+            "201": {
+              "count": 6749
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 622,
+          "p50": 76,
+          "p97": 286,
+          "p99": 1122,
+          "max": 1298,
+          "total": 5536,
+          "ok": 5536,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 49,
+          "apiRssMb": 116,
+          "dbCpu": 1.43,
+          "dbMem": "394.1MiB",
+          "codes": {
+            "201": {
+              "count": 5536
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 629,
+          "p50": 159,
+          "p97": 425,
+          "p99": 1192,
+          "max": 1255,
+          "total": 5597,
+          "ok": 5597,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 76.7,
+          "apiRssMb": 155,
+          "dbCpu": 4.43,
+          "dbMem": "394.4MiB",
+          "codes": {
+            "200": {
+              "count": 31
+            },
+            "201": {
+              "count": 5566
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1034,
+        "kneeAt": 8,
+        "comfortableAt": 32,
+        "comfortableRps": 763,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "tag-add-multi",
+      "title": "POST /contacts/:id/tags (5 tags at once)",
+      "group": "write",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 171,
+          "p50": 4,
+          "p97": 7,
+          "p99": 9,
+          "max": 1045,
+          "total": 1514,
+          "ok": 1514,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 30.4,
+          "apiRssMb": 136,
+          "dbCpu": 1.34,
+          "dbMem": "394.4MiB",
+          "codes": {
+            "201": {
+              "count": 1514
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 371,
+          "p50": 8,
+          "p97": 14,
+          "p99": 26,
+          "max": 1056,
+          "total": 3284,
+          "ok": 3284,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 56.1,
+          "apiRssMb": 142,
+          "dbCpu": 1.71,
+          "dbMem": "320.2MiB",
+          "codes": {
+            "201": {
+              "count": 3284
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 481,
+          "p50": 13,
+          "p97": 21,
+          "p99": 25,
+          "max": 1066,
+          "total": 4265,
+          "ok": 4265,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 64,
+          "apiRssMb": 134,
+          "dbCpu": 1.88,
+          "dbMem": "329.8MiB",
+          "codes": {
+            "201": {
+              "count": 4265
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 530,
+          "p50": 25,
+          "p97": 37,
+          "p99": 61,
+          "max": 1071,
+          "total": 4689,
+          "ok": 4689,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 76.7,
+          "apiRssMb": 130,
+          "dbCpu": 1.45,
+          "dbMem": "332.7MiB",
+          "codes": {
+            "201": {
+              "count": 4689
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 541,
+          "p50": 50,
+          "p97": 69,
+          "p99": 92,
+          "max": 1102,
+          "total": 4795,
+          "ok": 4795,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 78.6,
+          "apiRssMb": 140,
+          "dbCpu": 4.21,
+          "dbMem": "339.6MiB",
+          "codes": {
+            "201": {
+              "count": 4795
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 536,
+          "p50": 103,
+          "p97": 140,
+          "p99": 1084,
+          "max": 1150,
+          "total": 4745,
+          "ok": 4745,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 69.8,
+          "apiRssMb": 156,
+          "dbCpu": 15.83,
+          "dbMem": "334.1MiB",
+          "codes": {
+            "201": {
+              "count": 4745
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 522,
+          "p50": 204,
+          "p97": 1114,
+          "p99": 1224,
+          "max": 1290,
+          "total": 4643,
+          "ok": 4643,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 72.9,
+          "apiRssMb": 180,
+          "dbCpu": 36.59,
+          "dbMem": "333.8MiB",
+          "codes": {
+            "201": {
+              "count": 4643
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 541,
+        "kneeAt": 16,
+        "comfortableAt": 32,
+        "comfortableRps": 541,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "bulk-tag-100",
+      "title": "POST /contacts/bulk/tags (100 contacts)",
+      "group": "write",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 243,
+          "p50": 3,
+          "p97": 4,
+          "p99": 5,
+          "max": 1058,
+          "total": 2153,
+          "ok": 2153,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.1,
+          "apiCpu": 39.2,
+          "apiRssMb": 151,
+          "dbCpu": 2.92,
+          "dbMem": "334.8MiB",
+          "codes": {
+            "200": {
+              "count": 2153
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 2,
+          "rps": 531,
+          "p50": 3,
+          "p97": 4,
+          "p99": 6,
+          "max": 1067,
+          "total": 4706,
+          "ok": 4706,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 45.4,
+          "apiRssMb": 147,
+          "dbCpu": 1.75,
+          "dbMem": "275.8MiB",
+          "codes": {
+            "200": {
+              "count": 4706
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 901,
+          "p50": 3,
+          "p97": 5,
+          "p99": 6,
+          "max": 1053,
+          "total": 7977,
+          "ok": 7977,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 62.6,
+          "apiRssMb": 132,
+          "dbCpu": 0.2,
+          "dbMem": "280.4MiB",
+          "codes": {
+            "200": {
+              "count": 7977
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1091,
+          "p50": 6,
+          "p97": 9,
+          "p99": 11,
+          "max": 1060,
+          "total": 9651,
+          "ok": 9651,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.7,
+          "apiCpu": 91,
+          "apiRssMb": 167,
+          "dbCpu": 0.23,
+          "dbMem": "289.9MiB",
+          "codes": {
+            "200": {
+              "count": 9651
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 1005,
+          "p50": 13,
+          "p97": 21,
+          "p99": 33,
+          "max": 1065,
+          "total": 8893,
+          "ok": 8893,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 103.8,
+          "apiRssMb": 144,
+          "dbCpu": 0.31,
+          "dbMem": "292.1MiB",
+          "codes": {
+            "200": {
+              "count": 8893
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 895,
+          "p50": 30,
+          "p97": 41,
+          "p99": 56,
+          "max": 1086,
+          "total": 7926,
+          "ok": 7926,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 98.7,
+          "apiRssMb": 173,
+          "dbCpu": 0.3,
+          "dbMem": "292.4MiB",
+          "codes": {
+            "200": {
+              "count": 7926
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 839,
+          "p50": 65,
+          "p97": 91,
+          "p99": 148,
+          "max": 1125,
+          "total": 7430,
+          "ok": 7430,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 99.3,
+          "apiRssMb": 169,
+          "dbCpu": 0.15,
+          "dbMem": "292.2MiB",
+          "codes": {
+            "200": {
+              "count": 7430
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1091,
+        "kneeAt": 8,
+        "comfortableAt": 64,
+        "comfortableRps": 839,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "bulk-tag-1000",
+      "title": "POST /contacts/bulk/tags (1,000 contacts, the maximum)",
+      "group": "write",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 53,
+          "p50": 16,
+          "p97": 21,
+          "p99": 32,
+          "max": 1072,
+          "total": 466,
+          "ok": 466,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0,
+          "apiCpu": 33.3,
+          "apiRssMb": 161,
+          "dbCpu": 1.31,
+          "dbMem": "292.9MiB",
+          "codes": {
+            "200": {
+              "count": 466
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 2,
+          "rps": 112,
+          "p50": 15,
+          "p97": 19,
+          "p99": 24,
+          "max": 1062,
+          "total": 996,
+          "ok": 996,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.1,
+          "apiCpu": 32.6,
+          "apiRssMb": 134,
+          "dbCpu": 0.24,
+          "dbMem": "276.6MiB",
+          "codes": {
+            "200": {
+              "count": 996
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 170,
+          "p50": 20,
+          "p97": 25,
+          "p99": 29,
+          "max": 1067,
+          "total": 1507,
+          "ok": 1507,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.1,
+          "apiCpu": 45.7,
+          "apiRssMb": 137,
+          "dbCpu": 2.64,
+          "dbMem": "281.2MiB",
+          "codes": {
+            "200": {
+              "count": 1507
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 255,
+          "p50": 26,
+          "p97": 42,
+          "p99": 63,
+          "max": 1080,
+          "total": 2259,
+          "ok": 2259,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 85.8,
+          "apiRssMb": 155,
+          "dbCpu": 2.81,
+          "dbMem": "290.5MiB",
+          "codes": {
+            "200": {
+              "count": 2259
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 274,
+          "p50": 48,
+          "p97": 85,
+          "p99": 163,
+          "max": 1123,
+          "total": 2428,
+          "ok": 2428,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 104.2,
+          "apiRssMb": 169,
+          "dbCpu": 1.52,
+          "dbMem": "292.9MiB",
+          "codes": {
+            "200": {
+              "count": 2428
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 290,
+          "p50": 94,
+          "p97": 130,
+          "p99": 1148,
+          "max": 1235,
+          "total": 2596,
+          "ok": 2596,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 91.9,
+          "apiRssMb": 178,
+          "dbCpu": 0.31,
+          "dbMem": "293.1MiB",
+          "codes": {
+            "200": {
+              "count": 2596
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 266,
+          "p50": 196,
+          "p97": 1494,
+          "p99": 1587,
+          "max": 1654,
+          "total": 2198,
+          "ok": 2198,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.2,
+          "apiCpu": 93.5,
+          "apiRssMb": 197,
+          "dbCpu": 0.15,
+          "dbMem": "293.5MiB",
+          "codes": {
+            "200": {
+              "count": 2198
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 290,
+        "kneeAt": 32,
+        "comfortableAt": 16,
+        "comfortableRps": 274,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "delete-contact",
+      "title": "DELETE /contacts/:id (soft delete)",
+      "group": "write",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 505,
+          "p50": 1,
+          "p97": 3,
+          "p99": 4,
+          "max": 1051,
+          "total": 4468,
+          "ok": 4468,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 26.4,
+          "apiRssMb": 186,
+          "dbCpu": 2.27,
+          "dbMem": "294MiB",
+          "codes": {
+            "200": {
+              "count": 4468
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 1029,
+          "p50": 2,
+          "p97": 6,
+          "p99": 16,
+          "max": 1059,
+          "total": 9117,
+          "ok": 9117,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.8,
+          "apiCpu": 70.4,
+          "apiRssMb": 175,
+          "dbCpu": 2.1,
+          "dbMem": "281.8MiB",
+          "codes": {
+            "200": {
+              "count": 9117
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1180,
+          "p50": 5,
+          "p97": 9,
+          "p99": 11,
+          "max": 1047,
+          "total": 10432,
+          "ok": 10432,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 1,
+          "apiCpu": 85.2,
+          "apiRssMb": 170,
+          "dbCpu": 1.59,
+          "dbMem": "290.3MiB",
+          "codes": {
+            "200": {
+              "count": 10432
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 1050,
+          "p50": 12,
+          "p97": 22,
+          "p99": 28,
+          "max": 1068,
+          "total": 9302,
+          "ok": 9302,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.9,
+          "apiCpu": 89.8,
+          "apiRssMb": 182,
+          "dbCpu": 2.19,
+          "dbMem": "293.1MiB",
+          "codes": {
+            "200": {
+              "count": 9302
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 803,
+          "p50": 31,
+          "p97": 52,
+          "p99": 101,
+          "max": 1636,
+          "total": 7230,
+          "ok": 7230,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.7,
+          "apiCpu": 25.5,
+          "apiRssMb": 164,
+          "dbCpu": 2.49,
+          "dbMem": "293.8MiB",
+          "codes": {
+            "200": {
+              "count": 7230
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 733,
+          "p50": 67,
+          "p97": 110,
+          "p99": 1689,
+          "max": 1753,
+          "total": 6225,
+          "ok": 6225,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.7,
+          "apiCpu": 92.2,
+          "apiRssMb": 214,
+          "dbCpu": 3.59,
+          "dbMem": "293.4MiB",
+          "codes": {
+            "200": {
+              "count": 6225
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 700,
+          "p50": 143,
+          "p97": 336,
+          "p99": 1775,
+          "max": 1833,
+          "total": 5954,
+          "ok": 5954,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 93.7,
+          "apiRssMb": 177,
+          "dbCpu": 2.09,
+          "dbMem": "294MiB",
+          "codes": {
+            "200": {
+              "count": 5954
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1180,
+        "kneeAt": 8,
+        "comfortableAt": 32,
+        "comfortableRps": 803,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "restore-contact",
+      "title": "POST /contacts/:id/restore",
+      "group": "write",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 368,
+          "p50": 2,
+          "p97": 4,
+          "p99": 7,
+          "max": 1075,
+          "total": 3263,
+          "ok": 3263,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 47.8,
+          "apiRssMb": 118,
+          "dbCpu": 1.57,
+          "dbMem": "293.8MiB",
+          "codes": {
+            "200": {
+              "count": 3263
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 871,
+          "p50": 2,
+          "p97": 6,
+          "p99": 34,
+          "max": 1316,
+          "total": 7071,
+          "ok": 7071,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.7,
+          "apiCpu": 65.4,
+          "apiRssMb": 164,
+          "dbCpu": 17.43,
+          "dbMem": "292.2MiB",
+          "codes": {
+            "200": {
+              "count": 7071
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1016,
+          "p50": 5,
+          "p97": 12,
+          "p99": 36,
+          "max": 1693,
+          "total": 8630,
+          "ok": 8630,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.9,
+          "apiCpu": 85,
+          "apiRssMb": 162,
+          "dbCpu": 2.31,
+          "dbMem": "292.5MiB",
+          "codes": {
+            "200": {
+              "count": 8630
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 1162,
+          "p50": 11,
+          "p97": 18,
+          "p99": 22,
+          "max": 1383,
+          "total": 10287,
+          "ok": 10287,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.9,
+          "apiCpu": 83.1,
+          "apiRssMb": 175,
+          "dbCpu": 7.35,
+          "dbMem": "295.1MiB",
+          "codes": {
+            "200": {
+              "count": 10287
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 743,
+          "p50": 29,
+          "p97": 100,
+          "p99": 434,
+          "max": 1095,
+          "total": 6594,
+          "ok": 6594,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 93.3,
+          "apiRssMb": 196,
+          "dbCpu": 2.23,
+          "dbMem": "295.2MiB",
+          "codes": {
+            "200": {
+              "count": 6594
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 711,
+          "p50": 69,
+          "p97": 200,
+          "p99": 1087,
+          "max": 1166,
+          "total": 6323,
+          "ok": 6323,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 79.7,
+          "apiRssMb": 138,
+          "dbCpu": 1.31,
+          "dbMem": "295.5MiB",
+          "codes": {
+            "200": {
+              "count": 6323
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 128,
+          "rps": 599,
+          "p50": 154,
+          "p97": 904,
+          "p99": 1220,
+          "max": 1268,
+          "total": 5346,
+          "ok": 5346,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 84.8,
+          "apiRssMb": 180,
+          "dbCpu": 4.69,
+          "dbMem": "295.9MiB",
+          "codes": {
+            "200": {
+              "count": 5346
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1162,
+        "kneeAt": 16,
+        "comfortableAt": 32,
+        "comfortableRps": 743,
+        "breakAt": null
+      }
+    },
+    {
+      "name": "bulk-delete-100",
+      "title": "POST /contacts/bulk/delete (100 contacts)",
+      "group": "write",
+      "target": "api",
+      "steps": [
+        {
+          "c": 1,
+          "rps": 532,
+          "p50": 1,
+          "p97": 2,
+          "p99": 3,
+          "max": 1061,
+          "total": 4716,
+          "ok": 4716,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.3,
+          "apiCpu": 32.6,
+          "apiRssMb": 145,
+          "dbCpu": 1.08,
+          "dbMem": "297MiB",
+          "codes": {
+            "200": {
+              "count": 4716
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 2,
+          "rps": 1251,
+          "p50": 1,
+          "p97": 1,
+          "p99": 2,
+          "max": 1046,
+          "total": 11062,
+          "ok": 11062,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 70.8,
+          "apiRssMb": 184,
+          "dbCpu": 4.59,
+          "dbMem": "278MiB",
+          "codes": {
+            "200": {
+              "count": 11062
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 4,
+          "rps": 1378,
+          "p50": 2,
+          "p97": 3,
+          "p99": 4,
+          "max": 1054,
+          "total": 12193,
+          "ok": 12193,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.7,
+          "apiCpu": 100.1,
+          "apiRssMb": 210,
+          "dbCpu": 1.68,
+          "dbMem": "282.3MiB",
+          "codes": {
+            "200": {
+              "count": 12193
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 8,
+          "rps": 1122,
+          "p50": 6,
+          "p97": 9,
+          "p99": 10,
+          "max": 1062,
+          "total": 9927,
+          "ok": 9927,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.6,
+          "apiCpu": 101.2,
+          "apiRssMb": 209,
+          "dbCpu": 2.89,
+          "dbMem": "291.2MiB",
+          "codes": {
+            "200": {
+              "count": 9927
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 16,
+          "rps": 868,
+          "p50": 13,
+          "p97": 29,
+          "p99": 49,
+          "max": 1080,
+          "total": 7687,
+          "ok": 7687,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.5,
+          "apiCpu": 104.5,
+          "apiRssMb": 133,
+          "dbCpu": 3.17,
+          "dbMem": "295MiB",
+          "codes": {
+            "200": {
+              "count": 7687
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 32,
+          "rps": 827,
+          "p50": 31,
+          "p97": 52,
+          "p99": 64,
+          "max": 1092,
+          "total": 7327,
+          "ok": 7327,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 100.8,
+          "apiRssMb": 185,
+          "dbCpu": 0.29,
+          "dbMem": "293.7MiB",
+          "codes": {
+            "200": {
+              "count": 7327
+            }
+          },
+          "break": null
+        },
+        {
+          "c": 64,
+          "rps": 711,
+          "p50": 75,
+          "p97": 124,
+          "p99": 1065,
+          "max": 1158,
+          "total": 6311,
+          "ok": 6311,
+          "s4xx": 0,
+          "s5xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "mbps": 0.4,
+          "apiCpu": 98.7,
+          "apiRssMb": 223,
+          "dbCpu": 0.38,
+          "dbMem": "292.9MiB",
+          "codes": {
+            "200": {
+              "count": 6311
+            }
+          },
+          "break": null
+        }
+      ],
+      "summary": {
+        "maxRps": 1378,
+        "kneeAt": 4,
+        "comfortableAt": 32,
+        "comfortableRps": 827,
+        "breakAt": null
+      }
+    }
+  ]
+}

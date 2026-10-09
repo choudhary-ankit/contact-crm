@@ -50,6 +50,16 @@ export interface AppConfig {
   metricsCacheTtlMs: number;
   /** number of reverse proxies in front of the app (Render = 1), so rate limiting sees each visitor's real IP */
   trustProxy: number;
+  /** max connections in the database pool */
+  dbPoolMax: number;
+  /** any single SQL statement running longer than this is cancelled by Postgres (0 = off) */
+  dbStatementTimeoutMs: number;
+  /** how long a request waits for a free pooled connection before failing fast with 503 */
+  dbConnectTimeoutMs: number;
+  /** a cached metrics payload older than this is never served, even while refreshing */
+  metricsMaxStaleMs: number;
+  /** at most this many metrics computations run at the same time */
+  metricsMaxConcurrent: number;
 }
 
 const DEFAULT_KEYS =
@@ -76,5 +86,10 @@ export function loadConfig(): AppConfig {
     importChunkSize: Number(process.env.IMPORT_CHUNK_SIZE ?? 500),
     metricsCacheTtlMs: Number(process.env.METRICS_CACHE_TTL_MS ?? 30_000),
     trustProxy: Number(process.env.TRUST_PROXY ?? 0),
+    dbPoolMax: Number(process.env.DB_POOL_MAX ?? 10),
+    dbStatementTimeoutMs: Number(process.env.DB_STATEMENT_TIMEOUT_MS ?? 30_000),
+    dbConnectTimeoutMs: Number(process.env.DB_CONNECT_TIMEOUT_MS ?? 10_000),
+    metricsMaxStaleMs: Number(process.env.METRICS_MAX_STALE_MS ?? 600_000),
+    metricsMaxConcurrent: Number(process.env.METRICS_MAX_CONCURRENT ?? 2),
   };
 }

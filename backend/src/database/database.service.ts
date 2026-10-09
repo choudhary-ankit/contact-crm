@@ -9,7 +9,15 @@ export class DatabaseService implements OnModuleInit, OnModuleDestroy {
   readonly pool: Pool;
 
   constructor() {
-    this.pool = new Pool({ connectionString: loadConfig().databaseUrl, max: 10 });
+    const cfg = loadConfig();
+    this.pool = new Pool({
+      connectionString: cfg.databaseUrl,
+      max: cfg.dbPoolMax,
+      // A request that cannot get a connection fails fast (503) instead of waiting forever behind a backlog.
+      connectionTimeoutMillis: cfg.dbConnectTimeoutMs,
+      // Postgres cancels any single statement that runs this long, so a runaway query cannot hold a connection forever.
+      statement_timeout: cfg.dbStatementTimeoutMs > 0 ? cfg.dbStatementTimeoutMs : undefined,
+    });
   }
 
   async onModuleInit() {

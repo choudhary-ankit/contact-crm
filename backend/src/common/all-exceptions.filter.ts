@@ -11,6 +11,12 @@ const CODE_BY_STATUS: Record<number, string> = {
   429: 'RATE_LIMITED',
 };
 
+/** Database overload: no free connection within the wait limit, a statement cancelled by the timeout, or too many connections. */
+export const isOverload = (e: unknown): boolean => {
+  const err = e as { code?: string; message?: string } | undefined;
+  return err?.code === '57014' || err?.code === '53300' || /timeout exceeded when trying to connect/i.test(err?.message ?? '');
+};
+
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
   private readonly logger = new Logger('Exceptions');
@@ -30,6 +36,11 @@ export class AllExceptionsFilter implements ExceptionFilter {
         code: CODE_BY_STATUS[status] ?? 'ERROR',
         message: Array.isArray(message) ? message.join('; ') : message,
       });
+    }
+    if (isOverload(exception)) {
+      this.logger.warn(`Shedding load: ${(exception as Error).message}`);
+      res.setHeader('Retry-After', '2');
+      return res.status(503).json({ statusCode: 503, code: 'SERVICE_BUSY', message: 'The service is busy right now. Try again in a moment.' });
     }
     // Unknown error: log it fully, but never leak internals to the client.
     this.logger.error(exception instanceof Error ? (exception.stack ?? exception.message) : String(exception));

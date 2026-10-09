@@ -53,11 +53,11 @@ export class ContactsController {
     let written = 0;
     for (;;) {
       for (const c of page.data) {
-        if (written >= MAX) break;
+        if (written >= MAX || res.destroyed) break;
         res.write(toCsvLine([c.firstName, c.lastName, c.email ?? '', c.phone ?? '', c.company ?? '', c.tags.map((t) => t.name).join(';')]));
         written++;
       }
-      if (!page.nextCursor || written >= MAX) break;
+      if (!page.nextCursor || written >= MAX || res.destroyed) break; // stop querying once the client has gone away
       page = await this.contacts.list(account, pageQuery(page.nextCursor));
     }
     res.end();

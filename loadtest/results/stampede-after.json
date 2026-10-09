@@ -1,0 +1,29 @@
+{
+  "url": "http://localhost:3400",
+  "clients": 64,
+  "seconds": 6,
+  "metricsRequestsCompleted": 19124,
+  "metricsTimeouts": 0,
+  "metricsLatencyMs": {
+    "p50": 10,
+    "p99": 28,
+    "max": 2643
+  },
+  "peakQueriesInPostgres": 0,
+  "secondsUntilPostgresIdle": 0,
+  "collateral": {
+    "probeRequests": 24,
+    "ok": 24,
+    "failedOrTimedOut": 0,
+    "over1s": 0,
+    "p50Ms": 66,
+    "p99Ms": 343,
+    "maxMs": 343
+  },
+  "timeline": [
+    {
+      "sinceLoadEndSec": 0,
+      "active": 0
+    }
+  ]
+}
