@@ -49,8 +49,8 @@ export function shuffle(a) {
 }
 
 /** Everything the scenarios need, harvested once from the database. */
-export function loadFixtures({ writePool = 400_000 } = {}) {
-  const A = CONFIG.account;
+export function loadFixtures({ writePool = 400_000, account = CONFIG.account } = {}) {
+  const A = account;
   const t = Date.now();
   const readIds = sql(`SELECT id FROM contacts TABLESAMPLE SYSTEM (1) WHERE account_id='${A}' AND deleted_at IS NULL LIMIT 8000`).map((r) => r[0]);
   const createdRows = sql(`SELECT id, created_at::text FROM contacts TABLESAMPLE SYSTEM (0.1) WHERE account_id='${A}' AND deleted_at IS NULL LIMIT 600`);

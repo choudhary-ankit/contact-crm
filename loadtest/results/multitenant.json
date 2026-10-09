@@ -1,0 +1,414 @@
+{
+  "dur": 20,
+  "phases": [
+    {
+      "name": "1 baseline: enterprise-1 alone, 16 clients, mixed traffic",
+      "results": [
+        {
+          "tenant": "enterprise-1",
+          "profile": "mixed",
+          "conns": 16,
+          "rps": 10,
+          "total": 209,
+          "p50": 20,
+          "p97": 732,
+          "p99": 832,
+          "max": 904,
+          "ok": 209,
+          "conflicts409": 0,
+          "codes": {
+            "200": 192,
+            "201": 17
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        }
+      ],
+      "resources": {
+        "apiCpu": 0,
+        "apiRssMb": 90,
+        "dbCpu": 14.57,
+        "dbMem": "335.9MiB"
+      }
+    },
+    {
+      "name": "2 three enterprises at once, 16 clients each (48 total)",
+      "results": [
+        {
+          "tenant": "enterprise-1",
+          "profile": "mixed",
+          "conns": 16,
+          "rps": 15,
+          "total": 297,
+          "p50": 69,
+          "p97": 1199,
+          "p99": 1762,
+          "max": 2052,
+          "ok": 297,
+          "conflicts409": 0,
+          "codes": {
+            "200": 281,
+            "201": 16
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        },
+        {
+          "tenant": "enterprise-2",
+          "profile": "mixed",
+          "conns": 16,
+          "rps": 26,
+          "total": 519,
+          "p50": 111,
+          "p97": 1108,
+          "p99": 1208,
+          "max": 2005,
+          "ok": 519,
+          "conflicts409": 0,
+          "codes": {
+            "200": 503,
+            "201": 16
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        },
+        {
+          "tenant": "enterprise-3",
+          "profile": "mixed",
+          "conns": 16,
+          "rps": 16,
+          "total": 316,
+          "p50": 106,
+          "p97": 1252,
+          "p99": 1581,
+          "max": 1926,
+          "ok": 316,
+          "conflicts409": 0,
+          "codes": {
+            "200": 299,
+            "201": 17
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        }
+      ],
+      "resources": {
+        "apiCpu": 2.5,
+        "apiRssMb": 93,
+        "dbCpu": 392.98,
+        "dbMem": "432MiB"
+      }
+    },
+    {
+      "name": "3 three enterprises at once, 32 clients each (96 total)",
+      "results": [
+        {
+          "tenant": "enterprise-1",
+          "profile": "mixed",
+          "conns": 32,
+          "rps": 28,
+          "total": 566,
+          "p50": 298,
+          "p97": 1164,
+          "p99": 1432,
+          "max": 1823,
+          "ok": 566,
+          "conflicts409": 0,
+          "codes": {
+            "200": 530,
+            "201": 36
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        },
+        {
+          "tenant": "enterprise-2",
+          "profile": "mixed",
+          "conns": 32,
+          "rps": 31,
+          "total": 620,
+          "p50": 239,
+          "p97": 1239,
+          "p99": 1400,
+          "max": 1797,
+          "ok": 620,
+          "conflicts409": 0,
+          "codes": {
+            "200": 588,
+            "201": 32
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        },
+        {
+          "tenant": "enterprise-3",
+          "profile": "mixed",
+          "conns": 32,
+          "rps": 26,
+          "total": 526,
+          "p50": 270,
+          "p97": 1217,
+          "p99": 1384,
+          "max": 1523,
+          "ok": 526,
+          "conflicts409": 0,
+          "codes": {
+            "200": 492,
+            "201": 34
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        }
+      ],
+      "resources": {
+        "apiCpu": 15.7,
+        "apiRssMb": 114,
+        "dbCpu": 549.39,
+        "dbMem": "428.6MiB"
+      }
+    },
+    {
+      "name": "4 noisy neighbour: enterprise-1 runs heavy queries (32 clients), 2 and 3 run normal traffic (16 each)",
+      "results": [
+        {
+          "tenant": "enterprise-1",
+          "profile": "heavy",
+          "conns": 32,
+          "rps": 7,
+          "total": 131,
+          "p50": 4420,
+          "p97": 7444,
+          "p99": 8617,
+          "max": 8655,
+          "ok": 131,
+          "conflicts409": 0,
+          "codes": {
+            "200": 131
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        },
+        {
+          "tenant": "enterprise-2",
+          "profile": "mixed",
+          "conns": 16,
+          "rps": 5,
+          "total": 100,
+          "p50": 3064,
+          "p97": 5547,
+          "p99": 6065,
+          "max": 6385,
+          "ok": 100,
+          "conflicts409": 0,
+          "codes": {
+            "200": 98,
+            "201": 2
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        },
+        {
+          "tenant": "enterprise-3",
+          "profile": "mixed",
+          "conns": 16,
+          "rps": 4,
+          "total": 80,
+          "p50": 3113,
+          "p97": 5524,
+          "p99": 7642,
+          "max": 7642,
+          "ok": 80,
+          "conflicts409": 0,
+          "codes": {
+            "200": 74,
+            "201": 6
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        }
+      ],
+      "resources": {
+        "apiCpu": 1.1,
+        "apiRssMb": 114,
+        "dbCpu": 779.12,
+        "dbMem": "429.7MiB"
+      }
+    },
+    {
+      "name": "5 noisy neighbour: enterprise-1 runs 4 parallel exports + 16 heavy clients, 2 and 3 run normal traffic (16 each)",
+      "results": [
+        {
+          "tenant": "enterprise-1",
+          "profile": "export",
+          "conns": 4,
+          "rps": 0,
+          "total": 0,
+          "p50": 0,
+          "p97": 0,
+          "p99": 0,
+          "max": 0,
+          "ok": 0,
+          "conflicts409": 0,
+          "codes": {},
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 4,
+          "timeouts": 4,
+          "failures": 8
+        },
+        {
+          "tenant": "enterprise-1",
+          "profile": "heavy",
+          "conns": 16,
+          "rps": 6,
+          "total": 117,
+          "p50": 2038,
+          "p97": 5887,
+          "p99": 5996,
+          "max": 6029,
+          "ok": 117,
+          "conflicts409": 0,
+          "codes": {
+            "200": 117
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        },
+        {
+          "tenant": "enterprise-2",
+          "profile": "mixed",
+          "conns": 16,
+          "rps": 7,
+          "total": 144,
+          "p50": 1224,
+          "p97": 3425,
+          "p99": 3703,
+          "max": 5308,
+          "ok": 144,
+          "conflicts409": 0,
+          "codes": {
+            "200": 133,
+            "201": 11
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        },
+        {
+          "tenant": "enterprise-3",
+          "profile": "mixed",
+          "conns": 16,
+          "rps": 9,
+          "total": 177,
+          "p50": 1142,
+          "p97": 3456,
+          "p99": 4198,
+          "max": 4836,
+          "ok": 177,
+          "conflicts409": 0,
+          "codes": {
+            "200": 167,
+            "201": 10
+          },
+          "s5xx": 0,
+          "s503": 0,
+          "other4xx": 0,
+          "errors": 0,
+          "timeouts": 0,
+          "failures": 0
+        }
+      ],
+      "resources": {
+        "apiCpu": 5.3,
+        "apiRssMb": 107,
+        "dbCpu": 893.01,
+        "dbMem": "429.6MiB"
+      }
+    }
+  ],
+  "isolation": [
+    {
+      "check": "enterprise-1 lists its own contacts",
+      "ok": true,
+      "detail": "total 10000, metrics total ?"
+    },
+    {
+      "check": "enterprise-2 lists its own contacts",
+      "ok": true,
+      "detail": "total 10000, metrics total ?"
+    },
+    {
+      "check": "enterprise-3 lists its own contacts",
+      "ok": true,
+      "detail": "total 10000, metrics total ?"
+    },
+    {
+      "check": "enterprise-1 cannot read / edit / delete a contact of enterprise-2",
+      "ok": true,
+      "detail": "404 / 404 / 404"
+    },
+    {
+      "check": "enterprise-2 cannot read / edit / delete a contact of enterprise-3",
+      "ok": true,
+      "detail": "404 / 404 / 404"
+    },
+    {
+      "check": "enterprise-3 cannot read / edit / delete a contact of enterprise-1",
+      "ok": true,
+      "detail": "404 / 404 / 404"
+    },
+    {
+      "check": "the same email exists in every enterprise without conflict",
+      "ok": false,
+      "detail": "mt-mv0urnci0-55@loadtest.example"
+    }
+  ]
+}
